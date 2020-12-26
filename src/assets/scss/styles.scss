@@ -1,0 +1,28 @@
+.big-title {
+    font-size: 5em;
+    letter-spacing: -0.5px;
+}
+.title-section > * {
+    text-shadow: 9px 7px 12px #333;
+}
+.navbar a:not(.btn):not(.dropdown-item) {
+    color: inherit;
+}
+.navbar-light .navbar-toggler {
+    border: 0;
+}
+.button-bar {
+    background-color: #323;
+}
+.navbar-toggler {
+    display: flex;
+    width: 70px !important;
+    align-items: center;
+}
+.navbar .navbar-nav .nav-link:not(.btn) {
+    font-size: 1em;
+}
+.center {
+    display: flex;
+    align-items: center;
+}

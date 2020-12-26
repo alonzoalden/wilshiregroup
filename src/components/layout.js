@@ -9,8 +9,18 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+
+//import Header from "./header"
+import LandingPageHeader from "./LandingPageHeader"
+import ExamplesNavbar from "./ExamplesNavbar"
+// import "../assets/css/bootstrap.min.css"
 import "./layout.css"
+import "../assets/scss/styles.scss"
+import "../assets/scss/now-ui-kit.scss"
+import "fontsource-roboto"
+import "fontsource-montserrat"
+import "fontsource-open-sans"
+import IndexNavbar from "./IndexNavbar"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,7 +35,9 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
+      <ExamplesNavbar />
+      <LandingPageHeader />
       <div
         style={{
           margin: `0 auto`,

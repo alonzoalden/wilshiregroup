@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Nucleo Outline';
+    src: url('./nucleo-outline.woff2');
+    src: url('./nucleo-outline.eot');
+    src: url('./nucleo-outline.eot') format('embedded-opentype'),
+    url('./nucleo-outline.woff2') format('woff2'),
+    url('./nucleo-outline.woff') format('woff'),
+    url('./nucleo-outline.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Montserrat Bold";
+    src: url("./Montserrat-Bold.ttf");
+  }
+  @font-face {
+    font-family: "Montserrat";
+    src: url("./Montserrat-Medium.ttf");
+  }
+  @font-face {
+    font-family: "Roboto Bold";
+    src: url("./Roboto-Bold.ttf");
+  }
+  @font-face {
+    font-family: "Roboto";
+    src: url("./Roboto-Medium.ttf");
+  }
