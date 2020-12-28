@@ -28,7 +28,7 @@ import CarouselReviewsSection from "../components/CarouselReviews"
 import scrollTo from 'gatsby-plugin-smoothscroll'
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Insurance Planning & Wealth Preservation" />
     <div id="upcomingevents" style={{position: `absolute`, marginTop: `-20px`}}></div>
     <Container style={{
       margin: `0 auto`,
@@ -114,6 +114,7 @@ const IndexPage = () => (
         }}>- Wilshire Group Financial Services</h3>
         <img alt="Wilshire Group Financial Services Logo" src={Logo} />
       </div>
+      <div id="services"></div>
     </Container>
 
     {/* <Container style={{
@@ -143,7 +144,6 @@ const IndexPage = () => (
         <img alt="Wilshire Group Financial Services Logo" src={Logo} />
       </div>
     </Container> */}
-    <div id="services"></div>
     <Container className="mt-5" style={{
       margin: `0 auto`,
       paddingBottom: `40px`,

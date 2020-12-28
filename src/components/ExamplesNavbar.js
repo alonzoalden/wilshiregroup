@@ -164,7 +164,7 @@ function ExamplesNavbar() {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="https://wilshiregfs.com/services">
+                  <NavLink onClick={() => scrollTo('#services')} style={{cursor: `pointer`}}>
                     Services
                   </NavLink>
                 </NavItem>
