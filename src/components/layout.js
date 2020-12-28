@@ -21,6 +21,7 @@ import "fontsource-roboto"
 import "fontsource-montserrat"
 import "fontsource-open-sans"
 import IndexNavbar from "./IndexNavbar"
+import DarkFooter from "./DarkFooter"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -39,20 +40,23 @@ const Layout = ({ children }) => {
       <ExamplesNavbar />
       <LandingPageHeader />
       <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
+        // style={{
+        //   margin: `0 auto`,
+        //   maxWidth: 960,
+        //   padding: `0 1.0875rem 1.45rem`,
+        // }}
       >
         <main>{children}</main>
-        <footer style={{
+        <DarkFooter style={{
+          marginTop: `2rem`
+        }}></DarkFooter>
+        {/* <footer style={{
           marginTop: `2rem`
         }}>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+        </footer> */}
       </div>
     </>
   )

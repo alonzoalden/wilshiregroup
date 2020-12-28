@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaPhone } from "react-icons/fa";
+import { FaFacebook, FaFacebookF, FaFacebookSquare, FaInstagram, FaLinkedin, FaPhone } from "react-icons/fa";
 // reactstrap components
 import {
   Collapse,
@@ -17,7 +17,8 @@ import {
   UncontrolledTooltip,
   NavbarText
 } from "reactstrap";
-import Logo from "../assets/images/cropped-wilshirelogo-284x43.png"
+import Logo from "../assets/images/wilshirelogo-300x46.png"
+import scrollTo from 'gatsby-plugin-smoothscroll'
 
 function ExamplesNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
@@ -94,7 +95,7 @@ function ExamplesNavbar() {
         <Navbar className="fixed-top" color="light" light expand="lg">
           <Container>
             <UncontrolledDropdown className="button-dropdown">
-              <DropdownToggle
+              {/* <DropdownToggle
                 caret
                 data-toggle="dropdown"
                 href="#pablo"
@@ -105,7 +106,7 @@ function ExamplesNavbar() {
                 <span className="button-bar"></span>
                 <span className="button-bar"></span>
                 <span className="button-bar"></span>
-              </DropdownToggle>
+              </DropdownToggle> */}
               <DropdownMenu aria-labelledby="navbarDropdown">
                 <DropdownItem header tag="a">
                   Dropdown header
@@ -130,7 +131,7 @@ function ExamplesNavbar() {
               </DropdownMenu>
             </UncontrolledDropdown>
             <NavbarBrand
-              href="https://demos.creative-tim.com/now-ui-kit-react/index?ref=nukr-examples-navbar"
+              href="https://wilshiregfs.com"
               target="_blank"
               id="navbar-brand"
             >
@@ -158,54 +159,60 @@ function ExamplesNavbar() {
             >
               <Nav navbar>
                 <NavItem>
-                  <NavLink to="/index">
+                  <NavLink onClick={() => scrollTo('#aboutus')} style={{cursor: `pointer`}}>
                     About Us
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="https://github.com/creativetimofficial/now-ui-kit-react/issues?ref=creativetim">
+                  <NavLink href="https://wilshiregfs.com/services">
                     Services
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/index">
+                  <NavLink onClick={() => scrollTo('#upcomingevents')} style={{cursor: `pointer`}}>
+                    Upcoming Events
+                  </NavLink>
+                </NavItem>
+                
+                {/* <NavItem>
+                  <NavLink href="https://wilshiregfs.com/contact">
                     Contact Us
                   </NavLink>
-                </NavItem>
+                </NavItem> */}
                 <NavItem>
                   <NavLink
-                    href="https://twitter.com/CreativeTim?ref=creativetim"
-                    target="_blank"
-                    id="twitter-tooltip"
-                  >
-                    <i className="fab fa-twitter"></i>
-                    <p className="d-lg-none d-xl-none">Twitter</p>
-                  </NavLink>
-                  <UncontrolledTooltip target="#twitter-tooltip">
-                    Follow us on Twitter
-                  </UncontrolledTooltip>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    href="https://www.facebook.com/CreativeTim?ref=creativetim"
+                    href="https://www.facebook.com/wilshiregfs/"
                     target="_blank"
                     id="facebook-tooltip"
                   >
-                    <i className="fab fa-facebook-square"></i>
-                    <p className="d-lg-none d-xl-none">Facebook</p>
+                    <FaFacebook style={{fontSize: `20px`}}></FaFacebook>
+                    <p className="ml-2 d-lg-none d-xl-none">Facebook</p>
                   </NavLink>
                   <UncontrolledTooltip target="#facebook-tooltip">
-                    Like us on Facebook
+                    Follow us on Facebook
                   </UncontrolledTooltip>
                 </NavItem>
                 <NavItem>
                   <NavLink
-                    href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
+                    href="https://www.linkedin.com/company/wilshire-group-financial-services/"
+                    target="_blank"
+                    id="linkedin-tooltip"
+                  >
+                    <FaLinkedin style={{fontSize: `20px`}}></FaLinkedin>
+                    <p className="ml-2 d-lg-none d-xl-none">LinkedIn</p>
+                  </NavLink>
+                  <UncontrolledTooltip target="#linkedin-tooltip">
+                    Follow us on LinkedIn
+                  </UncontrolledTooltip>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    href="https://www.instagram.com/wilshiregroupfinancialservices"
                     target="_blank"
                     id="instagram-tooltip"
                   >
-                    <i className="fab fa-instagram"></i>
-                    <p className="d-lg-none d-xl-none">Instagram</p>
+                    <FaInstagram style={{fontSize: `20px`}}></FaInstagram>
+                    <p className="ml-2 d-lg-none d-xl-none">Instagram</p>
                   </NavLink>
                   <UncontrolledTooltip target="#instagram-tooltip">
                     Follow us on Instagram

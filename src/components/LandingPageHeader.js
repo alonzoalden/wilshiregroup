@@ -3,8 +3,7 @@ import React from "react";
 // reactstrap components
 import { Button, Container } from "reactstrap";
 import { FaInfo, FaPhone } from 'react-icons/fa';
-// core components
-
+import scrollTo from 'gatsby-plugin-smoothscroll'
 function LandingPageHeader() {
   let pageHeader = React.createRef();
 
@@ -61,7 +60,7 @@ function LandingPageHeader() {
             </div>
             <div>
               <Button
-                className="btn btn-info mr-5"
+                className="btn btn-info btn-lg mr-5"
                 color="info"
                 href="tel:213-972-8105"
                 onClick={(e) => e.preventDefault()}
@@ -70,10 +69,9 @@ function LandingPageHeader() {
                 <FaPhone/>
               </Button>
               <Button
-                className="btn btn-info"
+                className="btn btn-info btn-lg"
                 color="info"
-                href="tel:213-972-8105"
-                onClick={(e) => e.preventDefault()}
+                onClick={() => scrollTo('#aboutus')}
               > 
                 <span className="mr-3">Know More</span>
                 <FaInfo/>
