@@ -52,18 +52,17 @@ function LandingPageHeader() {
             <h1 className="title big-title">Financial Services</h1>
             <h1>Wealth Preservation & Insurance Planning</h1>
             <div className="d-flex flex-column mb-3" style={{
-                fontSize: `20px`
+                fontSize: `18px`
               }}>
-              <strong>Wilshire Group Financial Services</strong>
-              <span>has been providing solutions for</span>
-              <span>business and individuals <strong>since 1976.</strong></span>
+              <strong>Wilshire Group Financial Services </strong>
+              <span> has been providing solutions for </span>
+              <span> business and individuals <strong>since 1976. </strong></span>
             </div>
             <div>
               <Button
                 className="btn btn-info btn-lg mr-5"
                 color="info"
                 href="tel:213-972-8105"
-                onClick={(e) => e.preventDefault()}
               > 
                 <span className="mr-3">213-972-8105</span>
                 <FaPhone/>

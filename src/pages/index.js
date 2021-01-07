@@ -1,8 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
-
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import { Container, Button, Col, Row } from "reactstrap"
 import Logo from "../assets/images/wilshireicon.png"
@@ -22,38 +19,47 @@ import Carrier4 from "../assets/images/lincoln_financial.jpg"
 import Carrier5 from "../assets/images/united-home-life.png"
 import Carrier6 from "../assets/images/OneAmerica-logo.jpg"
 import ZoomMeetingImage from "../assets/images/WGFS-Estate-Financial-Planning-Zoom-Workshop-Flyer-jan21-1.png"
-import { FaInfo, FaQuoteLeft, FaPhone, FaGift, FaPeopleCarry, FaSmile } from 'react-icons/fa'
+import { FaInfo, FaQuoteLeft, FaPhone, FaGift, FaPeopleCarry, FaSmile, FaCalendarAlt, FaClock, FaMapMarkerAlt, FaHandPointUp, FaHandPointDown, FaThumbsUp } from 'react-icons/fa'
 import CarouselSection from "../components/Carousel"
 import CarouselReviewsSection from "../components/CarouselReviews"
+import LandingPageHeader from "../components/LandingPageHeader"
 import scrollTo from 'gatsby-plugin-smoothscroll'
+import MainNavbar from "../components/NavbarMain"
+const rsvpURL = "https://forms.gle/b3vtREfoHXXsJQhA8";
+
 const IndexPage = () => (
   <Layout>
+    <MainNavbar />
+    <LandingPageHeader />
     <SEO title="Insurance Planning & Wealth Preservation" />
-    <div id="upcomingevents" style={{position: `absolute`, marginTop: `-20px`}}></div>
+    <div id="upcomingevents" style={{ position: `absolute`, marginTop: `-20px` }}></div>
     <Container style={{
       margin: `0 auto`,
       paddingTop: `12vh`,
       paddingBottom: `40px`,
     }}>
       <h1 className="blue text-center">Upcoming Events</h1>
-      <div className="d-flex flex-column align-items-center justify-content-center mt-5">
-
-        <div className="d-flex justify-content-center" style={{
-          background: `url(${ZoomMeetingImage})`,
-          backgroundSize: `cover`,
-          backgroundPosition: `center center`,
-          width: `460px`, minHeight: `600px`
-        }}></div>
-        <div className="p-4 mt-2" style={{fontSize: `18px`}}>
-          <h2>Meeting Information</h2>
-          <div className="mb-2"><strong className="mr-2">When:</strong>Saturday, January 23, 2021. 9am - 12pm PST</div>
-          <div className="mb-2"><strong className="mr-2">Where:</strong>Zoom (Please make sure to have Zoom installed and RSVP)</div>
-          <div ><strong className="mr-2">RSVP:</strong><br /><a href="https://forms.gle/b3vtREfoHXXsJQhA8" target="_blank">https://forms.gle/b3vtREfoHXXsJQhA8</a></div>
-
+      <div className="d-flex flex-column flex-lg-row justify-content-center mt-5">
+        <div className="d-flex flex-column align-items-center p-4">
+          <img src={ZoomMeetingImage} style={{
+            maxHeight: `530px`,
+            boxShadow: ` 4px 4px 8px #eee`
+          }} />
+        </div>
+        <div className="d-flex flex-column align-items-center p-4 mt-2 mt-md-0" style={{ fontSize: `18px` }}>
+          <div>
+            <h2>Meeting Information</h2>
+            <h4 className="text-muted"><a href={rsvpURL} target="_blank">Please RSVP now to join!</a></h4>
+            <div className="mb-2"><FaCalendarAlt className="blue"></FaCalendarAlt><strong className="ml-2">Date:</strong><br /><div className="ml-4">Saturday, January 23, 2021</div></div>
+            <div className="mb-2"><FaClock className="blue"></FaClock><strong className="ml-2">Time:</strong><br /><div className="ml-4">9:00am - 12:00pm (Pacific / PST)</div></div>
+            <div className="mb-2"><FaMapMarkerAlt className="blue"></FaMapMarkerAlt><strong className="ml-2">Where:</strong><br /><div className="ml-4">Zoom (Please make sure to have <a href="https://zoom.us/" target="_blank">Zoom</a> installed)</div></div>
+            <div className="mb-4"><FaThumbsUp className="blue"></FaThumbsUp><strong className="ml-2">RSVP:</strong><br /><div className="ml-4"><a href={rsvpURL} target="_blank">{rsvpURL}</a></div></div>
+            <i className="text-muted" style={{ fontSize: '14px' }}>For more information, please call us at (213)-972-8105</i>
+          </div>
         </div>
       </div>
+      <div id="aboutus"></div>
     </Container>
-    <div id="aboutus"></div>
 
     <Container fluid style={{
       margin: `0 auto`,
@@ -66,7 +72,7 @@ const IndexPage = () => (
       background: `linear-gradient(to top right, #fff 25%,transparent 60%) top/100% 100%, linear-gradient(to right, #2CA8FF, #fff), linear-gradient(to top, #2CA8FF, #fff)`,
       backgroundRepeat: `no-repeat`
     }}>
-      <Container className="w-auto card d-flex flex-column flex-md-row mb-5" style={{ textAlign: `left` }}>
+      <Container className="w-100 card d-flex flex-column flex-md-row mb-5" style={{ textAlign: `left` }}>
         <CarouselSection></CarouselSection>
         <div className="d-flex flex-column justify-content-center p-3">
           <div>
@@ -101,7 +107,7 @@ const IndexPage = () => (
           opacity: ` 0.1`,
           fontSize: `90px`,
           marginTop: `-30px`,
-          
+
         }}>
           <FaQuoteLeft />
         </div>
@@ -154,107 +160,113 @@ const IndexPage = () => (
     }}>
       <div className="w-100">
         <h1 className="blue" style={{ fontWeight: `100` }}>Our Services</h1>
-        {/* <p>You will benefit from a solid foundation of true financial planning that encompasses the following...</p> */}
         <Row>
           <Col md="4" style={{ overflow: `hidden` }}>
-            <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
-              <div
-                className="p-3 glow-item"
-                style={{
-                  position: `absolute`,
-                  background: `url(${ServicesImage1})`,
-                  backgroundSize: `cover`,
-                  backgroundPosition: `center center`,
-                  width: `100%`,
-                  height: `100%`,
-                  zIndex: `-1`
-                }}
-              ></div>
-              <span>Estate and Legacy planning</span>
-            </div>
-            <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
-              <div
-                className="p-3 glow-item"
-                style={{
-                  position: `absolute`,
-                  background: `url(${ServicesImage2})`,
-                  backgroundSize: `cover`,
-                  backgroundPosition: `center center`,
-                  backgroundRepeat: `no-repeat`,
-                  width: `100%`,
-                  height: `100%`,
-                  zIndex: `-1`
-                }}
-              ></div>
-              <span>Risk Management</span>
-            </div>
-
+            <a href="/services">
+              <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
+                <div
+                  className="p-3 glow-item"
+                  style={{
+                    position: `absolute`,
+                    background: `url(${ServicesImage1})`,
+                    backgroundSize: `cover`,
+                    backgroundPosition: `center center`,
+                    width: `100%`,
+                    height: `100%`,
+                    zIndex: `-1`
+                  }}
+                ></div>
+                <span>Estate and Legacy planning</span>
+              </div>
+            </a>
+            <a href="/services">
+              <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
+                <div
+                  className="p-3 glow-item"
+                  style={{
+                    position: `absolute`,
+                    background: `url(${ServicesImage2})`,
+                    backgroundSize: `cover`,
+                    backgroundPosition: `center center`,
+                    backgroundRepeat: `no-repeat`,
+                    width: `100%`,
+                    height: `100%`,
+                    zIndex: `-1`
+                  }}
+                ></div>
+                <span>Risk Management</span>
+              </div>
+            </a>
           </Col>
           <Col md="4" style={{ overflow: `hidden` }}>
-            <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
-              <div
-                className="p-3 glow-item"
-                style={{
-                  position: `absolute`,
-                  background: `url(${ServicesImage3})`,
-                  backgroundSize: `cover`,
-                  backgroundPosition: `center center`,
-                  width: `100%`,
-                  height: `100%`,
-                  zIndex: `-1`
-                }}
-              ></div>
-              <span>Debt Management</span>
-            </div>
-            <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
-              <div
-                className="p-3 glow-item"
-                style={{
-                  position: `absolute`,
-                  background: `url(${ServicesImage4})`,
-                  backgroundSize: `cover`,
-                  backgroundPosition: `center center`,
-                  width: `100%`,
-                  height: `100%`,
-                  zIndex: `-1`
-                }}
-              ></div>
-              <span>Tax Minimization</span>
-            </div>
-
+            <a href="/services">
+              <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
+                <div
+                  className="p-3 glow-item"
+                  style={{
+                    position: `absolute`,
+                    background: `url(${ServicesImage3})`,
+                    backgroundSize: `cover`,
+                    backgroundPosition: `center center`,
+                    width: `100%`,
+                    height: `100%`,
+                    zIndex: `-1`
+                  }}
+                ></div>
+                <span>Debt Management</span>
+              </div>
+              <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
+                <div
+                  className="p-3 glow-item"
+                  style={{
+                    position: `absolute`,
+                    background: `url(${ServicesImage4})`,
+                    backgroundSize: `cover`,
+                    backgroundPosition: `center center`,
+                    width: `100%`,
+                    height: `100%`,
+                    zIndex: `-1`
+                  }}
+                ></div>
+                <span>Tax Minimization</span>
+              </div>
+            </a>
           </Col>
           <Col md="4" style={{ overflow: `hidden` }}>
-            <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
-              <div
-                className="p-3 glow-item"
-                style={{
-                  position: `absolute`,
-                  background: `url(${ServicesImage5})`,
-                  backgroundSize: `cover`,
-                  backgroundPosition: `center center`,
-                  width: `100%`,
-                  height: `100%`,
-                  zIndex: `-1`
-                }}
-              ></div>
-              <span>Retirement and Savings Asset Accumulation</span>
-            </div>
-            <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
-              <div
-                className="p-3 glow-item"
-                style={{
-                  position: `absolute`,
-                  background: `url(${ServicesImage6})`,
-                  backgroundSize: `cover`,
-                  backgroundPosition: `center center`,
-                  width: `100%`,
-                  height: `100%`,
-                  zIndex: `-1`
-                }}
-              ></div>
-              <span>Retirement Income Planning</span>
-            </div>
-
+            <a href="/services">
+              <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
+                <div
+                  className="p-3 glow-item"
+                  style={{
+                    position: `absolute`,
+                    background: `url(${ServicesImage5})`,
+                    backgroundSize: `cover`,
+                    backgroundPosition: `center center`,
+                    width: `100%`,
+                    height: `100%`,
+                    zIndex: `-1`
+                  }}
+                ></div>
+                <span>Retirement and Savings Asset Accumulation</span>
+              </div>
+            </a>
+            <a href="/services">
+              <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
+                <div
+                  className="p-3 glow-item"
+                  style={{
+                    position: `absolute`,
+                    background: `url(${ServicesImage6})`,
+                    backgroundSize: `cover`,
+                    backgroundPosition: `center center`,
+                    width: `100%`,
+                    height: `100%`,
+                    zIndex: `-1`
+                  }}
+                ></div>
+                <span>Retirement Income Planning</span>
+              </div>
+            </a>
           </Col>
         </Row>
       </div>
@@ -266,7 +278,7 @@ const IndexPage = () => (
       backgroundColor: `#eee`
     }}>
       <Row className="w-100 nopadding">
-        <Col md="8" sm="12" className="glow-item d-flex flex-column justify-content-center"
+        <Col md="8" sm="12" className="big-window glow-item d-flex flex-column justify-content-center"
           style={{
             minHeight: `595px`,
             padding: `72px`,
@@ -292,7 +304,7 @@ const IndexPage = () => (
             <Button
               className="btn btn-info btn-lg"
               color="info"
-              href="https://wilshiregfs.com/services"
+              href="/services"
             >
               <span className="mr-3">Know More</span>
               <FaInfo />
@@ -336,7 +348,7 @@ const IndexPage = () => (
             }}
           ></div>
         </Col>
-        <Col md="8" sm="12" className="glow-item"
+        <Col md="8" sm="12" className="glow-item big-window"
           style={{
             padding: `72px`,
             background: `-moz-linear-gradient(top, #FFE0F2 0%, #E5B2C0 100%)`,
@@ -347,13 +359,13 @@ const IndexPage = () => (
           <p>
             Our plans offer recommendations which are non-product in nature. This means you do not have to buy something or invest money.
             </p>
-          <p><a href="">Learn more...</a></p>
+          <p><a href="/services">Learn more...</a></p>
 
           <h2>No Direct Charge to Clients</h2>
           <p>
             Our services are provided without direct charge to our clients. We are compensated when the clients utilize companies that provide compensation to us.
             </p>
-          <p><a href="">Learn more...</a></p>
+          <p><a href="/services">Learn more...</a></p>
 
           <Button
             className="btn btn-info btn-lg mr-md-5"
@@ -366,7 +378,7 @@ const IndexPage = () => (
           <Button
             className="btn btn-info btn-lg"
             color="info"
-            href="https://wilshiregfs.com/services"
+            href="/services"
           >
             <span className="mr-3">Know More</span>
             <FaInfo />
@@ -399,7 +411,20 @@ const IndexPage = () => (
         </Col>
       </Row>
     </Container>
-
+    <Container fluid className="reviews big-window" style={{
+      padding: `72px`,
+      margin: `0 auto`,
+      textAlign: `center`,
+      background: `url(${FamilyBeach})`,
+      backgroundSize: `cover`,
+      backgroundPosition: `center center`,
+      width: `100%`,
+      height: `100%`,
+    }}>
+      <div className="d-flex align-items-center justify-content-center w-100" style={{ minHeight: `300px` }}>
+        <CarouselReviewsSection></CarouselReviewsSection>
+      </div>
+    </Container>
     <Container style={{
       padding: `72px`,
       margin: `0 auto`,
@@ -434,22 +459,6 @@ const IndexPage = () => (
         </Col> */}
       </Row>
     </Container>
-
-    <Container fluid className="reviews" style={{
-      padding: `72px`,
-      margin: `0 auto`,
-      textAlign: `center`,
-      background: `url(${FamilyBeach})`,
-      backgroundSize: `cover`,
-      backgroundPosition: `center center`,
-      width: `100%`,
-      height: `100%`,
-    }}>
-      <div className="d-flex align-items-center justify-content-center w-100" style={{ minHeight: `300px` }}>
-        <CarouselReviewsSection></CarouselReviewsSection>
-      </div>
-    </Container>
-
 
     {/* <Link to="/page-2/">Go to page 2</Link> <br />
     <Link to="/using-typescript/">Go to "Using TypeScript"</Link> */}

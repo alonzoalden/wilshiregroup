@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Insurance Planning | Wealth Preservation`,
-    description: `Insurance Planning | Wealth Preservation`,
+    description: `Wilshire Group Financial Services`,
     author: `Alonzo Alden`,
   },
   plugins: [

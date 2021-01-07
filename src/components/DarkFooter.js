@@ -30,7 +30,6 @@ function DarkFooter() {
                 id="linkedin-tooltip"
               >
                 <FaLinkedin style={{fontSize: `32px`}}></FaLinkedin>
-                <p className="d-lg-none d-xl-none">LinkedIn</p>
               </a>
             </div>
             <div className="mr-3">
@@ -40,7 +39,6 @@ function DarkFooter() {
                 id="instagram-tooltip"
               >
                 <FaInstagram style={{fontSize: `32px`}}></FaInstagram>
-                <p className="d-lg-none d-xl-none">Instagram</p>
               </a>
             </div>
           </div>
@@ -88,13 +86,14 @@ function DarkFooter() {
             </li>
           </ul>
         </div>
-        <div className="w-100"><iframe src="https://maps.google.com/maps?q=34.057015419421624, -118.25168637534233&z=14&output=embed" width="400" height="220" frameborder="0" style={{border:`0`}}></iframe></div>
+        {/* <div className="w-100"><iframe src="https://maps.google.com/maps?q=34.057015419421624, -118.25168637534233&z=14&output=embed" width="100%" height="220" style={{border:`0`}}></iframe></div> */}
+        <div className="w-100"><iframe src="https://maps.google.com/maps?q=880 West 1st St, Los Angeles, California 90012&z=14&output=embed" width="100%" height="220" style={{border:`0`}}></iframe></div>
       </Container>
     </Container>
     <footer className="footer" data-background-color="black">
-      <Container>
+      <Container className="d-flex flex-column flex-md-row align-items-center justify-content-md-between">
         <nav>
-          <ul>
+          <ul style={{marginLeft: `0`}}>
             <li>
               <a
                 href="https://wilshiregfs.com"

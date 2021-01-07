@@ -11,23 +11,25 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  )
-
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
-
+  // const { site } = useStaticQuery(
+  //   graphql`
+  //     query {
+  //       site {
+  //         siteMetadata {
+  //           title
+  //           description
+  //           author
+  //         }
+  //       }
+  //     }
+  //   `
+  // )
+  // const site = {}
+  // const metaDescription = description || site.siteMetadata.description
+  // const defaultTitle = site.siteMetadata?.title
+  const metaDescription = `Insurance Planning | Wealth Preservation`
+  const defaultTitle = `Wilshire Group Financial Services`
+  
   return (
     <Helmet
       htmlAttributes={{
@@ -58,7 +60,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
+          content: 'AlonzoAlden',
         },
         {
           name: `twitter:title`,

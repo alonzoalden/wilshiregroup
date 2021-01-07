@@ -62,7 +62,6 @@ function CarouselReviewsSection() {
   return (
       <div className="w-100" id="carousel-reviews" style={{padding: `16px`}}>
         <Container>
-          
           <Row className="justify-content-center align-items-center">
             <Col className="d-flex justify-content-center align-items-center">
               <Carousel
@@ -91,7 +90,6 @@ function CarouselReviewsSection() {
                 <a
                   className="carousel-control-prev"
                   data-slide="prev"
-                  href="#pablo"
                   onClick={(e) => {
                     e.preventDefault();
                     previous();
@@ -103,7 +101,6 @@ function CarouselReviewsSection() {
                 <a
                   className="carousel-control-next"
                   data-slide="next"
-                  href="#pablo"
                   onClick={(e) => {
                     e.preventDefault();
                     next();

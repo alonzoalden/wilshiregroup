@@ -20,7 +20,8 @@ import {
 import Logo from "../assets/images/wilshirelogo-300x46.png"
 import scrollTo from 'gatsby-plugin-smoothscroll'
 
-function ExamplesNavbar() {
+
+function MainNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {
@@ -45,8 +46,9 @@ function ExamplesNavbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+
   return (
-    
+
     <>
       {collapseOpen ? (
         <div
@@ -94,64 +96,14 @@ function ExamplesNavbar() {
       <div>
         <Navbar className="fixed-top" color="light" light expand="lg">
           <Container>
-            <UncontrolledDropdown className="button-dropdown">
-              {/* <DropdownToggle
-                caret
-                data-toggle="dropdown"
-                href="#pablo"
-                id="navbarDropdown"
-                tag="a"
-                onClick={(e) => e.preventDefault()}
-              >
-                <span className="button-bar"></span>
-                <span className="button-bar"></span>
-                <span className="button-bar"></span>
-              </DropdownToggle> */}
-              <DropdownMenu aria-labelledby="navbarDropdown">
-                <DropdownItem header tag="a">
-                  Dropdown header
-                </DropdownItem>
-                <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
-                  Action
-                </DropdownItem>
-                <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
-                  Another action
-                </DropdownItem>
-                <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
-                  Something else here
-                </DropdownItem>
-                <DropdownItem divider></DropdownItem>
-                <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
-                  Separated link
-                </DropdownItem>
-                <DropdownItem divider></DropdownItem>
-                <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
-                  One more separated link
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
             <NavbarBrand
               href="https://wilshiregfs.com"
               target="_blank"
               id="navbar-brand"
             >
-              <img src={Logo} />
+              <img style={{ maxWidth: `255px` }} src={Logo} />
             </NavbarBrand>
-            
             <NavbarToggler onClick={toggle} />
-              {/* <button
-                className="navbar-toggler navbar-toggler"
-                onClick={() => {
-                  document.documentElement.classList.toggle("nav-open");
-                  setCollapseOpen(!collapseOpen);
-                }}
-                aria-expanded={collapseOpen}
-                type="button"
-              >
-                <span className="navbar-toggler-bar top-bar"></span>
-                <span className="navbar-toggler-bar middle-bar"></span>
-                <span className="navbar-toggler-bar bottom-bar"></span>
-              </button> */}
             <Collapse
               className="justify-content-end"
               isOpen={isOpen}
@@ -159,38 +111,27 @@ function ExamplesNavbar() {
             >
               <Nav navbar>
                 <NavItem>
-                  <NavLink onClick={() => scrollTo('#aboutus')} style={{cursor: `pointer`}}>
-                    About Us
-                  </NavLink>
+                  <NavLink onClick={() => scrollTo('#aboutus')} style={{ cursor: `pointer` }}>About Us</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink onClick={() => scrollTo('#services')} style={{cursor: `pointer`}}>
-                    Services
-                  </NavLink>
+                    <NavLink onClick={() => scrollTo('#services')} style={{ cursor: `pointer` }}>Services</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink onClick={() => scrollTo('#upcomingevents')} style={{cursor: `pointer`}}>
-                    Upcoming Events
-                  </NavLink>
+                    <NavLink onClick={() => scrollTo('#upcomingevents')} style={{ cursor: `pointer` }}>Upcoming Events</NavLink>
                 </NavItem>
                 
-                {/* <NavItem>
-                  <NavLink href="https://wilshiregfs.com/contact">
-                    Contact Us
-                  </NavLink>
-                </NavItem> */}
                 <NavItem>
                   <NavLink
                     href="https://www.facebook.com/wilshiregfs/"
                     target="_blank"
                     id="facebook-tooltip"
                   >
-                    <FaFacebook style={{fontSize: `20px`}}></FaFacebook>
+                    <FaFacebook style={{ fontSize: `20px` }}></FaFacebook>
                     <p className="ml-2 d-lg-none d-xl-none">Facebook</p>
                   </NavLink>
-                  <UncontrolledTooltip target="#facebook-tooltip">
+                  {/* <UncontrolledTooltip target="#facebook-tooltip">
                     Follow us on Facebook
-                  </UncontrolledTooltip>
+                  </UncontrolledTooltip> */}
                 </NavItem>
                 <NavItem>
                   <NavLink
@@ -198,12 +139,12 @@ function ExamplesNavbar() {
                     target="_blank"
                     id="linkedin-tooltip"
                   >
-                    <FaLinkedin style={{fontSize: `20px`}}></FaLinkedin>
+                    <FaLinkedin style={{ fontSize: `20px` }}></FaLinkedin>
                     <p className="ml-2 d-lg-none d-xl-none">LinkedIn</p>
                   </NavLink>
-                  <UncontrolledTooltip target="#linkedin-tooltip">
+                  {/* <UncontrolledTooltip target="#linkedin-tooltip">
                     Follow us on LinkedIn
-                  </UncontrolledTooltip>
+                  </UncontrolledTooltip> */}
                 </NavItem>
                 <NavItem>
                   <NavLink
@@ -211,16 +152,16 @@ function ExamplesNavbar() {
                     target="_blank"
                     id="instagram-tooltip"
                   >
-                    <FaInstagram style={{fontSize: `20px`}}></FaInstagram>
+                    <FaInstagram style={{ fontSize: `20px` }}></FaInstagram>
                     <p className="ml-2 d-lg-none d-xl-none">Instagram</p>
                   </NavLink>
-                  <UncontrolledTooltip target="#instagram-tooltip">
+                  {/* <UncontrolledTooltip target="#instagram-tooltip">
                     Follow us on Instagram
-                  </UncontrolledTooltip>
+                  </UncontrolledTooltip> */}
                 </NavItem>
                 <NavItem>
                   <NavLink className="center" href="tel:213-972-8105">
-                    <strong className="mr-2" style={{letterSpacing: `1px` }}>213-972-8105</strong>
+                    <strong className="mr-2" style={{ letterSpacing: `1px` }}>213-972-8105</strong>
                     <FaPhone />
                   </NavLink>
                 </NavItem>
@@ -233,4 +174,4 @@ function ExamplesNavbar() {
   );
 }
 
-export default ExamplesNavbar;
+export default MainNavbar;

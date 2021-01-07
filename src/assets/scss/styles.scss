@@ -1,5 +1,8 @@
+button, .btn-lg {
+    width: 217px;
+}
 .big-title {
-    font-size: 5em;
+    font-size: 66px;
     letter-spacing: -0.5px;
 }
 .txtshadow-lite {
@@ -106,4 +109,17 @@ h3, h2, h1 {
 }
 .fake-link:hover {
     text-decoration: underline;
+}
+@media (max-width: 700px) {
+    .big-window {
+        padding: 24px !important;
+    }
+    .copyright {
+        display: flex;
+        flex-direction: column;
+    }
+}
+.center-vert {
+    display: flex;
+    align-items: center;
 }

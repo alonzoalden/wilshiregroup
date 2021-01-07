@@ -75,6 +75,7 @@ function CarouselSection() {
                 activeIndex={activeIndex}
                 next={next}
                 previous={previous}
+                autoPlay={true}
               >
                 <CarouselIndicators
                   items={items}
@@ -98,7 +99,6 @@ function CarouselSection() {
                 <a
                   className="carousel-control-prev"
                   data-slide="prev"
-                  href="#pablo"
                   onClick={(e) => {
                     e.preventDefault();
                     previous();
@@ -110,7 +110,6 @@ function CarouselSection() {
                 <a
                   className="carousel-control-next"
                   data-slide="next"
-                  href="#pablo"
                   onClick={(e) => {
                     e.preventDefault();
                     next();
