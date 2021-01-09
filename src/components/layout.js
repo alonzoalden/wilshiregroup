@@ -37,10 +37,7 @@ const Layout = ({ children }) => {
       <div
       >
         <main>{children}</main>
-        <DarkFooter style={{
-          marginTop: `2rem`
-        }}></DarkFooter>
-        
+
       </div>
     </>
   )

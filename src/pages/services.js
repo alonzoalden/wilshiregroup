@@ -12,24 +12,20 @@ import ServicesImage9 from "../assets/images/wilshiregfs-logo-300x300.jpg"
 import ServicePageHeader from '../components/ServicePageHeader'
 import ServiceSection from '../components/ServiceSection'
 import ServicesNavbar from "../components/NavbarServices"
-const IndexPage = () => (
+import DarkFooter from "../components/DarkFooter"
+const ServicePage = () => (
   <Layout>
     <SEO title="Insurance Planning & Wealth Preservation" />
     <ServicesNavbar></ServicesNavbar>
     <ServicePageHeader></ServicePageHeader>
-    <div id="upcomingevents" style={{ position: `absolute`, marginTop: `-20px` }}></div>
     <Container className="mt-5" style={{
       margin: `0 auto`,
-      paddingBottom: `40px`,
       display: `flex`,
       flexDirection: `column`,
       alignItems: `center`,
       textAlign: `start`,
     }}>
-      <div className="w-100" style={{
-        paddingLeft: `80px`,
-        paddingRight: `80px`
-      }}>
+      <div className="w-100 p-1 p-md-5" >
         <h1 className="blue text-center" style={{ fontWeight: `100` }}>Our Services</h1>
         <div className="text-center mb-4" style={{ fontSize: `18px`, fontWeight: `600` }}><i>"...Our job is to help you navigate through the sea of policy options and clarify any questions or concerns you may have along the way."</i></div>
         {/* <p>You will benefit from a solid foundation of true financial planning that encompasses the following...</p> */}
@@ -38,15 +34,14 @@ const IndexPage = () => (
         <p>- Wilshire Group Financial Services</p>
       </div>
     </Container>
-
-    <Container className="mt-5" style={{
+    <hr />
+    <Container className="" style={{
       paddingBottom: `40px`,
       display: `flex`,
       flexDirection: `column`,
       alignItems: `center`,
       textAlign: `start`,
     }}>
-
       <ServiceSection
         image={ServicesImage3}
         title="Individually Tailored Plans"
@@ -100,8 +95,10 @@ const IndexPage = () => (
 
       <h2 className="mt-5">Contact Us Today!</h2>
     </Container>
-
+    <DarkFooter style={{
+      marginTop: `2rem`
+    }}></DarkFooter>
   </Layout>
 )
 
-export default IndexPage
+export default ServicePage

@@ -25,6 +25,7 @@ import CarouselReviewsSection from "../components/CarouselReviews"
 import LandingPageHeader from "../components/LandingPageHeader"
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import MainNavbar from "../components/NavbarMain"
+import DarkFooter from "../components/DarkFooter"
 const rsvpURL = "https://forms.gle/b3vtREfoHXXsJQhA8";
 
 const IndexPage = () => (
@@ -46,7 +47,7 @@ const IndexPage = () => (
             boxShadow: ` 4px 4px 8px #eee`
           }} />
         </div>
-        <div className="d-flex flex-column align-items-center p-4 mt-2 mt-md-0" style={{ fontSize: `18px` }}>
+        <div className="p-4 mt-2 mt-md-0" style={{ fontSize: `18px` }}>
           <div>
             <h2>Meeting Information</h2>
             <h4 className="text-muted"><a href={rsvpURL} target="_blank">Please RSVP now to join!</a></h4>
@@ -460,8 +461,9 @@ const IndexPage = () => (
       </Row>
     </Container>
 
-    {/* <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link> */}
+    <DarkFooter style={{
+      marginTop: `2rem`
+    }}></DarkFooter>
   </Layout>
 )
 
