@@ -65,6 +65,7 @@ function CarouselReviewsSection() {
           <Row className="justify-content-center align-items-center">
             <Col className="d-flex justify-content-center align-items-center">
               <Carousel
+                ride={"carousel"}
                 activeIndex={activeIndex}
                 next={next}
                 previous={previous}

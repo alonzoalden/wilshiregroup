@@ -42,10 +42,11 @@ function DarkFooter() {
               </a>
             </div>
           </div>
-          <div className="mt-3">Contact Info:</div>
+          <div className="mt-3" style={{fontWeight: `600`}}>Contact Info:</div>
           <div className="d-flex flex-column">
-            <span >880 West 1st St #614, Los Angeles, CA 90012</span>
-            <span >blavares@wilshiregfs.com</span>
+            <span>(213) 972-8105</span>
+            <span>880 West 1st St #614, Los Angeles, CA 90012</span>
+            <span>blavares@wilshiregfs.com</span>
           </div>
         </div>
         <div className="links w-100 mt-3">

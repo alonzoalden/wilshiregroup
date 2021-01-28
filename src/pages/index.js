@@ -18,15 +18,16 @@ import Carrier3 from "../assets/images/john-hancock-logo.png"
 import Carrier4 from "../assets/images/lincoln_financial.jpg"
 import Carrier5 from "../assets/images/united-home-life.png"
 import Carrier6 from "../assets/images/OneAmerica-logo.jpg"
-import ZoomMeetingImage from "../assets/images/WGFS-Estate-Financial-Planning-Zoom-Workshop-Flyer-jan21-1.png"
+import ZoomMeetingImage from "../assets/flyers/WGFSFlyer-feb21.png"
 import { FaInfo, FaQuoteLeft, FaPhone, FaGift, FaPeopleCarry, FaSmile, FaCalendarAlt, FaClock, FaMapMarkerAlt, FaHandPointUp, FaHandPointDown, FaThumbsUp } from 'react-icons/fa'
 import CarouselSection from "../components/Carousel"
 import CarouselReviewsSection from "../components/CarouselReviews"
+import CarouselCarrierSection from "../components/CarouselCarriers"
 import LandingPageHeader from "../components/LandingPageHeader"
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import MainNavbar from "../components/NavbarMain"
 import DarkFooter from "../components/DarkFooter"
-const rsvpURL = "https://forms.gle/b3vtREfoHXXsJQhA8";
+const rsvpURL = "https://forms.gle/t9XZkFFQujcfEWFM8";
 
 const IndexPage = () => (
   <Layout>
@@ -51,10 +52,39 @@ const IndexPage = () => (
           <div>
             <h2>Meeting Information</h2>
             <h4 className="text-muted"><a href={rsvpURL} target="_blank">Please RSVP now to join!</a></h4>
-            <div className="mb-2"><FaCalendarAlt className="blue"></FaCalendarAlt><strong className="ml-2">Date:</strong><br /><div className="ml-4">Saturday, January 23, 2021</div></div>
-            <div className="mb-2"><FaClock className="blue"></FaClock><strong className="ml-2">Time:</strong><br /><div className="ml-4">9:00am - 12:00pm (Pacific / PST)</div></div>
-            <div className="mb-2"><FaMapMarkerAlt className="blue"></FaMapMarkerAlt><strong className="ml-2">Where:</strong><br /><div className="ml-4">Zoom (Please make sure to have <a href="https://zoom.us/" target="_blank">Zoom</a> installed)</div></div>
-            <div className="mb-4"><FaThumbsUp className="blue"></FaThumbsUp><strong className="ml-2">RSVP:</strong><br /><div className="ml-4"><a href={rsvpURL} target="_blank">{rsvpURL}</a></div></div>
+
+            <div className="mb-2" class="meeting-list-detail">
+              <div><FaCalendarAlt className="blue"></FaCalendarAlt></div>
+              <div>
+                <strong>Date:</strong>
+                <div>Saturday, February 20, 2021</div>
+              </div>
+            </div>
+
+            <div className="mb-2" class="meeting-list-detail">
+              <div><FaClock className="blue"></FaClock></div>
+              <div>
+                <strong>Time:</strong>
+                <div>9:00am - 12:00pm (Pacific / PST)</div>
+              </div>
+            </div>
+
+            <div className="mb-2" class="meeting-list-detail">
+              <div><FaMapMarkerAlt className="blue"></FaMapMarkerAlt></div>
+              <div>
+                <strong>Where:</strong>
+                <div>Zoom (Please make sure to have <a href="https://zoom.us/" target="_blank">Zoom</a> installed)</div>
+              </div>
+            </div>
+
+            <div className="mb-4" class="meeting-list-detail">
+              <div><FaThumbsUp className="blue"></FaThumbsUp></div>
+              <div>
+                <strong>RSVP:</strong>
+                <div><a href={rsvpURL} target="_blank">{rsvpURL}</a></div>
+              </div>
+            </div>
+
             <i className="text-muted" style={{ fontSize: '14px' }}>For more information, please call us at (213)-972-8105</i>
           </div>
         </div>
@@ -159,12 +189,12 @@ const IndexPage = () => (
       alignItems: `center`,
       textAlign: `center`
     }}>
-      <div className="w-100">
-        <h1 className="blue" style={{ fontWeight: `100` }}>Our Services</h1>
+      <div className="w-100" className="ourservices">
+        <h1 className="blue " style={{ fontWeight: `100` }}>Our Services</h1>
         <Row>
           <Col md="4" style={{ overflow: `hidden` }}>
             <a href="/services">
-              <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
+              <div className="glow d-flex align-items-center justify-content-center title-section p-3 mb-4" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
                 <div
                   className="p-3 glow-item"
                   style={{
@@ -176,12 +206,12 @@ const IndexPage = () => (
                     height: `100%`,
                     zIndex: `-1`
                   }}
-                ></div>
+                ><div class="overlay"></div></div>
                 <span>Estate and Legacy planning</span>
               </div>
             </a>
             <a href="/services">
-              <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
+              <div className="glow d-flex align-items-center justify-content-center title-section p-3 mb-4" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
                 <div
                   className="p-3 glow-item"
                   style={{
@@ -194,14 +224,14 @@ const IndexPage = () => (
                     height: `100%`,
                     zIndex: `-1`
                   }}
-                ></div>
+                ><div class="overlay overlay-dark"></div></div>
                 <span>Risk Management</span>
               </div>
             </a>
           </Col>
           <Col md="4" style={{ overflow: `hidden` }}>
             <a href="/services">
-              <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
+              <div className="glow d-flex align-items-center justify-content-center title-section p-3 mb-4" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
                 <div
                   className="p-3 glow-item"
                   style={{
@@ -213,10 +243,10 @@ const IndexPage = () => (
                     height: `100%`,
                     zIndex: `-1`
                   }}
-                ></div>
+                ><div class="overlay overlay-dark"></div></div>
                 <span>Debt Management</span>
               </div>
-              <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
+              <div className="glow d-flex align-items-center justify-content-center title-section p-3 mb-4" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
                 <div
                   className="p-3 glow-item"
                   style={{
@@ -228,14 +258,14 @@ const IndexPage = () => (
                     height: `100%`,
                     zIndex: `-1`
                   }}
-                ></div>
+                ><div class="overlay"></div></div>
                 <span>Tax Minimization</span>
               </div>
             </a>
           </Col>
           <Col md="4" style={{ overflow: `hidden` }}>
             <a href="/services">
-              <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
+              <div className="glow d-flex align-items-center justify-content-center title-section p-3 mb-4" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
                 <div
                   className="p-3 glow-item"
                   style={{
@@ -247,12 +277,12 @@ const IndexPage = () => (
                     height: `100%`,
                     zIndex: `-1`
                   }}
-                ></div>
+                ><div class="overlay"></div></div>
                 <span>Retirement and Savings Asset Accumulation</span>
               </div>
             </a>
             <a href="/services">
-              <div className="glow clear-filter d-flex align-items-center justify-content-center title-section p-3 mb-4" filter-color="blue" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
+              <div className="glow d-flex align-items-center justify-content-center title-section p-3 mb-4" style={{ overflow: `hidden`, height: `150px`, zIndex: `999 !important`, color: `#fff`, fontSize: `20px`, fontWeight: `600` }}>
                 <div
                   className="p-3 glow-item"
                   style={{
@@ -264,7 +294,7 @@ const IndexPage = () => (
                     height: `100%`,
                     zIndex: `-1`
                   }}
-                ></div>
+                ><div class="overlay overlay-dark"></div></div>
                 <span>Retirement Income Planning</span>
               </div>
             </a>
@@ -413,7 +443,7 @@ const IndexPage = () => (
       </Row>
     </Container>
     <Container fluid className="reviews big-window" style={{
-      padding: `72px`,
+      padding: `40px`,
       margin: `0 auto`,
       textAlign: `center`,
       background: `url(${FamilyBeach})`,
@@ -426,13 +456,16 @@ const IndexPage = () => (
         <CarouselReviewsSection></CarouselReviewsSection>
       </div>
     </Container>
-    <Container style={{
+    <Container className="column-to-row" style={{
       padding: `72px`,
       margin: `0 auto`,
-      textAlign: `center`
+      textAlign: `center`,
+      width: `100%`
     }}>
-      <h1 className="blue mb-5">Our Carriers</h1>
-      <Row className="justify-content-between flex-column flex-lg-row carrier-icon-section" >
+      <h1 className="blue mb-5" style={{width: `100%`}}>Our Carriers</h1>
+
+      <CarouselCarrierSection></CarouselCarrierSection>
+      {/* <Row className="justify-content-between flex-column flex-lg-row carrier-icon-section" >
         <div ><a href="https://img.anicoweb.com/wps/portal/img/home" target="_blank"><img alt="American National" src={Carrier1} /></a></div>
         <div ><a href="https://assurelink.assurity.com" target="_blank"><img alt="Assurity" src={Carrier2} href="" /></a></div>
         <div ><a href="https://advisor.johnhancockinsurance.com/" target="_blank"><img alt="John Hancock" src={Carrier3} /></a></div>
@@ -441,24 +474,7 @@ const IndexPage = () => (
         <div ><a href="https://www.lfg.com/public/individual" target="_blank"><img alt="Lincoln Financial Group" src={Carrier4} /></a></div>
         <div ><a href="https://www.unitedhomelife.com/UnitedHomeLife/login.jsp" target="_blank"><img alt="United Home Life" src={Carrier5} /></a></div>
         <div ><a href="https://www.oneamerica.com/" target="_blank"><img alt="One America" src={Carrier6} /></a></div>
-
-
-        {/* <Col className="d-flex flex-column align-items-center" md="4" sm="12" >
-          <FaGift className="navy" style={{fontSize: `120px`}}></FaGift>
-          <h3 className="navy mt-2">No Direct Charge</h3>
-          <p>Our services are provided without direct charge to our clients.</p>
-        </Col>
-        <Col className="d-flex flex-column align-items-center" md="4" sm="12" >
-          <FaPeopleCarry className="navy" style={{fontSize: `120px`}}></FaPeopleCarry>
-          <h3 className="navy mt-2">Working Relationships</h3>
-          <p>We maintain working relationships with top professionals in other fields.</p>
-        </Col>
-        <Col className="d-flex flex-column align-items-center" md="4" sm="12">
-          <FaSmile className="navy" style={{fontSize: `120px`}}></FaSmile>
-          <h3 className="navy mt-2">Satisfaction Guaranteed</h3>
-          <p>We will prepare your plan entirely at our risk.</p>
-        </Col> */}
-      </Row>
+      </Row> */}
     </Container>
 
     <DarkFooter style={{

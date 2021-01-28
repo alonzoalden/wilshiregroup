@@ -8,7 +8,7 @@ button, .btn-lg {
 .txtshadow-lite {
     text-shadow: 2px 2px 2px #ccc;
 }
-.title-section > * {
+.txtshadow {
     text-shadow: 9px 7px 12px #333;
 }
 .navbar a:not(.btn):not(.dropdown-item) {
@@ -33,21 +33,71 @@ button, .btn-lg {
     align-items: center;
 }
 .photos .carousel {
-    max-width: 300px;
-    width: 300px;
-    min-width: 300px;
-    max-height: 450px;
-    height: 450px;
-    min-height: 450px;
+    max-width: 260px;
+    width: 260px;
+    min-width: 260px;
+    max-height: 390px;
+    height: 390px;
+    min-height: 390px;
     display: flex;
     align-items: center;
 }
+.carriers .carousel-indicators li {
+    background-color: #444;
+}
+
+.carriers .carousel-item {
+    height: 100%;
+}
+.carriers .carousel-item .active {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carriers .carousel-control-next, .carousel-control-prev {
+    color: #444;
+}
+.carriers .carousel-caption {
+    bottom: 0;
+}
+.carriers .carousel-item a {
+    color: #aaa !important;
+}
+.carriers .carousel {
+    max-width: 400px !important;
+    width: 400px !important;
+    min-width: 400px !important;
+    max-height: 200px !important;
+    min-height: 200px !important;
+    height: 200px !important;
+    display: flex;
+    align-items: center;
+}
+.carriers .carousel-inner {
+    max-width: 400px !important;
+    width: 400px !important;
+    min-width: 400px !important;
+    max-height: 200px !important;
+    min-height: 200px !important;
+    height: 200px !important;
+    display: flex;
+    align-items: center;
+}
+.carriers .carousel-caption {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
 .reviews .carousel-inner {
+    max-height: 300px;
+    height: 300px;
+    min-height: 300px;
     box-shadow: none !important;
 }
-.carousel-item img {
+.photos .carousel-item img {
     width: 100%;
 }
+
 .blue {
     color: #2CA8FF;
 }
@@ -68,6 +118,7 @@ button, .btn-lg {
 }
 .glow span {
     transition: all 0.2s ease-in-out;
+    text-decoration: none;
 }
 .glow:hover span {
     text-shadow: 5px 5px 6px #222;
@@ -125,4 +176,47 @@ h3, h2, h1 {
 }
 .dv-star-rating i {
     font-size: 20px;
+}
+.overlay {
+    //background-color: #1c93e2;
+    background-color: #2CA8FF;
+    opacity: 0.39;
+    transition: background 0.3s ease 0s, border-radius 0.3s ease 0s, opacity 0.3s ease 0s;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+.overlay-dark {
+    background-color: #222;
+}
+.page-header .page-header-image {
+    z-index: initial !important;
+}
+.btn-info-white {
+    color: #2CA8FF;
+    background-color: #ffff;
+    font-weight: 600;
+}
+.ourservices a {
+    text-decoration: none;
+}
+.meeting-list-detail {
+    display: flex;
+    margin-bottom: 12px;
+}
+.meeting-list-detail > div:first-of-type {
+    margin-right: 12px;
+}
+.column-to-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@media (min-width: 800px) {
+    .column-to-row {
+        flex-direction: column;
+    }
 }

@@ -12,35 +12,42 @@ import {
 
 // core components
 
+import Carrier1 from "../assets/images/american-national.jpeg"
+import Carrier2 from "../assets/images/assurity-logo-0-150x150.png"
+import Carrier3 from "../assets/images/john-hancock-logo.png"
+import Carrier4 from "../assets/images/lincoln_financial.jpg"
+import Carrier5 from "../assets/images/united-home-life.png"
+import Carrier6 from "../assets/images/OneAmerica-logo.jpg"
+
+
 const items = [
   {
-    src: require("../assets/images/profile/BelleLavares.jpg"),
-    altText: "Belle Lavares",
-    caption: "Belle Lavares",
+    src: require("../assets/images/american-national.jpeg"),
+    url: 'https://img.anicoweb.com/wps/portal/img/home'
   },
   {
-    src: require("../assets/images/profile/ErlinDahl.jpg"),
-    altText: "Erlin Dahl",
-    caption: "Erlin Dahl",
+    src: require("../assets/images/assurity-logo-0-150x150.png"),
+    url: 'https://assurelink.assurity.com'
   },
   {
-    src: require("../assets/images/profile/SolLoualhati.jpg"),
-    altText: "Sol Loualhati",
-    caption: "Sol Loualhati",
+    src: require("../assets/images/john-hancock-logo.png"),
+    url: 'https://advisor.johnhancockinsurance.com/'
   },
   {
-    src: require("../assets/images/profile/JoannaDellosa.png"),
-    altText: "Joanna Dellosa",
-    caption: "Joanna Dellosa",
+    src: require("../assets/images/lincoln_financial.jpg"),
+    url: 'https://www.lfg.com/public/individual'
   },
   {
-    src: require("../assets/images/profile/PeterLavares.png"),
-    altText: "Peter Lavares",
-    caption: "Peter Lavares",
+    src: require("../assets/images/united-home-life.png"),
+    url: 'https://www.unitedhomelife.com/UnitedHomeLife/login.jsp'
+  },
+  {
+    src: require("../assets/images/OneAmerica-logo.jpg"),
+    url: 'https://www.oneamerica.com/'
   }
 ];
 
-function CarouselSection() {
+function CarouselCarrierSection() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [animating, setAnimating] = React.useState(false);
   const onExiting = () => {
@@ -65,9 +72,9 @@ function CarouselSection() {
   };
   return (
     <>
-      <div id="carousel" className="photos" style={{padding: `32px`}}>
+      <div id="carousel" className="carriers" style={{ padding: `0 32px 32px 32px;` }}>
         <Container>
-          
+
           <Row className="justify-content-center align-items-center">
             <Col className="d-flex justify-content-center align-items-center">
               <Carousel
@@ -76,11 +83,11 @@ function CarouselSection() {
                 previous={previous}
                 ride={"carousel"}
               >
-                <CarouselIndicators
+                {/* <CarouselIndicators
                   items={items}
                   activeIndex={activeIndex}
                   onClickHandler={goToIndex}
-                />
+                /> */}
                 {items.map((item) => {
                   return (
                     <CarouselItem
@@ -88,9 +95,9 @@ function CarouselSection() {
                       onExited={onExited}
                       key={item.src}
                     >
-                      <img src={item.src} alt={item.altText} />
-                      <div className="carousel-caption d-none d-md-block">
-                        <h5>{item.caption}</h5>
+                      <div style={{height: `100%`, display: `flex`, alignItems: `center`, justifyContent: `center`}}><img src={item.src} alt={item.altText} /></div>
+                      <div className="carousel-caption">
+                        <a href={item.url} target='_blank'><strong>Visit Website</strong></a>
                       </div>
                     </CarouselItem>
                   );
@@ -126,4 +133,4 @@ function CarouselSection() {
   );
 }
 
-export default CarouselSection;
+export default CarouselCarrierSection;

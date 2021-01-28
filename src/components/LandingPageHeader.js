@@ -22,7 +22,7 @@ function LandingPageHeader() {
   });
   return (
     <>
-      <div className="page-header page-header-small clear-filter" filter-color="blue"
+      <div className="page-header page-header-small" 
         style={{
           height: `100vh`,
           minHeight: `100vh`,
@@ -31,7 +31,10 @@ function LandingPageHeader() {
           color: `#fff`,
           position: `relative`,
           overflow: `hidden`,
-          background: `linear-gradient(0deg,rgba(44,44,44,.2),rgba(3,161,224,.6))`
+          //background: `linear-gradient(0deg,rgba(44,44,44,.2),rgba(3,161,224,.6))`
+          // backgroundColor: `#1c93e2`,
+          // opacity: `.86`,
+          transition: `background .3s,border-radius .3s,opacity .3s`
         }}>
         <div
           className="page-header-image"
@@ -39,7 +42,9 @@ function LandingPageHeader() {
             backgroundImage: "url(" + require("../assets/images/losangeles.jpg") + ")",
           }}
           ref={pageHeader}
-        ></div>
+        >
+          <div class="overlay"></div>
+        </div>
         <Container style={{
           margin: `0 auto`,
           textAlign: `left`,
@@ -49,10 +54,11 @@ function LandingPageHeader() {
           alignItems: `center`
         }}>
           <div className="d-flex flex-column title-section">
-            <h1 className="title big-title">Financial Services</h1>
+            <h1 className="title big-title txtshadow">Financial Services</h1>
             <h1>Wealth Preservation & Insurance Planning</h1>
             <div className="d-flex flex-column mb-3" style={{
-                fontSize: `18px`
+                fontSize: `18px`,
+                fontWeight: `700`
               }}>
               <strong>Wilshire Group Financial Services </strong>
               <span> has been providing solutions for </span>
@@ -60,7 +66,7 @@ function LandingPageHeader() {
             </div>
             <div>
               <Button
-                className="btn btn-info btn-lg mr-5"
+                className="btn btn-info btn-lg mr-5 btn-info-white"
                 color="info"
                 href="tel:213-972-8105"
               > 
@@ -68,7 +74,7 @@ function LandingPageHeader() {
                 <FaPhone/>
               </Button>
               <Button
-                className="btn btn-info btn-lg"
+                className="btn btn-info btn-lg btn-info-white"
                 color="info"
                 onClick={() => scrollTo('#aboutus')}
               > 

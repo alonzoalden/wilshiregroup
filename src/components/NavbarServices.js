@@ -78,7 +78,7 @@ function ServicesNavbar() {
             >
               <Nav navbar>
                 <NavItem>
-                  <NavLink href="/" style={{ cursor: `pointer` }}>About Us</NavLink>
+                  <NavLink href="https://wilshiregfs.com" style={{ cursor: `pointer` }}>About Us</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="/services" style={{ cursor: `pointer` }}>Services</NavLink>
