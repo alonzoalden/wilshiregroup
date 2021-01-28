@@ -53,7 +53,7 @@ const IndexPage = () => (
             <h2>Meeting Information</h2>
             <h4 className="text-muted"><a href={rsvpURL} target="_blank">Please RSVP now to join!</a></h4>
 
-            <div className="mb-2" class="meeting-list-detail">
+            <div className="mb-2 meeting-list-detail">
               <div><FaCalendarAlt className="blue"></FaCalendarAlt></div>
               <div>
                 <strong>Date:</strong>
@@ -61,7 +61,7 @@ const IndexPage = () => (
               </div>
             </div>
 
-            <div className="mb-2" class="meeting-list-detail">
+            <div className="mb-2 meeting-list-detail">
               <div><FaClock className="blue"></FaClock></div>
               <div>
                 <strong>Time:</strong>
@@ -69,7 +69,7 @@ const IndexPage = () => (
               </div>
             </div>
 
-            <div className="mb-2" class="meeting-list-detail">
+            <div className="mb-2 meeting-list-detail">
               <div><FaMapMarkerAlt className="blue"></FaMapMarkerAlt></div>
               <div>
                 <strong>Where:</strong>
@@ -77,7 +77,7 @@ const IndexPage = () => (
               </div>
             </div>
 
-            <div className="mb-4" class="meeting-list-detail">
+            <div className="mb-4 meeting-list-detail">
               <div><FaThumbsUp className="blue"></FaThumbsUp></div>
               <div>
                 <strong>RSVP:</strong>
