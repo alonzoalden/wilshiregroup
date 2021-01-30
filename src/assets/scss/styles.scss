@@ -197,7 +197,10 @@ h3, h2, h1 {
 .btn-info-white {
     color: #2CA8FF;
     background-color: #ffff;
-    font-weight: 600;
+}
+.btn-lg {
+    width: 222px;
+    padding: 15px 42px;
 }
 .ourservices a {
     text-decoration: none;
@@ -219,4 +222,9 @@ h3, h2, h1 {
     .column-to-row {
         flex-direction: column;
     }
+}
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

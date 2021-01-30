@@ -66,7 +66,7 @@ function LandingPageHeader() {
             </div>
             <div>
               <Button
-                className="btn btn-info btn-lg mr-5 btn-info-white"
+                className="btn btn-info btn-lg mr-5 btn-info-white flex-center"
                 color="info"
                 href="tel:213-972-8105"
               > 
@@ -74,7 +74,7 @@ function LandingPageHeader() {
                 <FaPhone/>
               </Button>
               <Button
-                className="btn btn-info btn-lg btn-info-white"
+                className="btn btn-info btn-lg btn-info-white flex-center"
                 color="info"
                 onClick={() => scrollTo('#aboutus')}
               > 

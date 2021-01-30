@@ -35,13 +35,11 @@ const IndexPage = () => (
     <LandingPageHeader />
     <SEO title="Insurance Planning & Wealth Preservation" />
     <div id="upcomingevents" style={{ position: `absolute`, marginTop: `-20px` }}></div>
-    <Container style={{
+    <Container className="mt-5" style={{
       margin: `0 auto`,
-      paddingTop: `12vh`,
-      paddingBottom: `40px`,
     }}>
       <h1 className="blue text-center">Upcoming Events</h1>
-      <div className="d-flex flex-column flex-lg-row justify-content-center mt-5">
+      <div className="d-flex flex-column flex-lg-row justify-content-center">
         <div className="d-flex flex-column align-items-center p-4">
           <img src={ZoomMeetingImage} style={{
             maxHeight: `530px`,
