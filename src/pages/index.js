@@ -18,7 +18,7 @@ import Carrier3 from "../assets/images/john-hancock-logo.png"
 import Carrier4 from "../assets/images/lincoln_financial.jpg"
 import Carrier5 from "../assets/images/united-home-life.png"
 import Carrier6 from "../assets/images/OneAmerica-logo.jpg"
-import ZoomMeetingImage from "../assets/flyers/WGFSFlyer-feb21.png"
+import ZoomMeetingImage from "../assets/flyers/WFGSFlyerFeb21latest.png"
 import { FaInfo, FaQuoteLeft, FaPhone, FaGift, FaPeopleCarry, FaSmile, FaCalendarAlt, FaClock, FaMapMarkerAlt, FaHandPointUp, FaHandPointDown, FaThumbsUp } from 'react-icons/fa'
 import CarouselSection from "../components/Carousel"
 import CarouselReviewsSection from "../components/CarouselReviews"
@@ -35,16 +35,16 @@ const IndexPage = () => (
     <LandingPageHeader />
     <SEO title="Insurance Planning & Wealth Preservation" />
     <div id="upcomingevents" style={{ position: `absolute`, marginTop: `-20px` }}></div>
-    <Container className="mt-5" style={{
+    <Container className="mt-5 mb-3" style={{
       margin: `0 auto`,
     }}>
       <h1 className="blue text-center">Upcoming Events</h1>
       <div className="d-flex flex-column flex-lg-row justify-content-center">
         <div className="d-flex flex-column align-items-center p-4">
-          <img src={ZoomMeetingImage} style={{
-            maxHeight: `530px`,
+          <a href={rsvpURL} target="_blank"><img src={ZoomMeetingImage} style={{
+            // maxHeight: `530px`,
             boxShadow: ` 4px 4px 8px #eee`
-          }} />
+          }} /></a>
         </div>
         <div className="p-4 mt-2 mt-md-0" style={{ fontSize: `18px` }}>
           <div>

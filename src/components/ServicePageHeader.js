@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Container } from "reactstrap";
 import { FaInfo, FaPhone } from 'react-icons/fa';
 import scrollTo from 'gatsby-plugin-smoothscroll';
-import HandShakeImage from "../assets/images/hand-shake-bg-768x318.jpg";
+import HandShakeImage from "../assets/images/hand-shake-bg.jpg";
 
 function ServicePageHeader() {
   let pageHeader = React.createRef();
