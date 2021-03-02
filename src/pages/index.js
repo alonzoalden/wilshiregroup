@@ -18,7 +18,7 @@ import Carrier3 from "../assets/images/john-hancock-logo.png"
 import Carrier4 from "../assets/images/lincoln_financial.jpg"
 import Carrier5 from "../assets/images/united-home-life.png"
 import Carrier6 from "../assets/images/OneAmerica-logo.jpg"
-import ZoomMeetingImage from "../assets/flyers/WFGSFlyerFeb21latest.png"
+
 import { FaInfo, FaQuoteLeft, FaPhone, FaGift, FaPeopleCarry, FaSmile, FaCalendarAlt, FaClock, FaMapMarkerAlt, FaHandPointUp, FaHandPointDown, FaThumbsUp } from 'react-icons/fa'
 import CarouselSection from "../components/Carousel"
 import CarouselReviewsSection from "../components/CarouselReviews"
@@ -27,8 +27,11 @@ import LandingPageHeader from "../components/LandingPageHeader"
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import MainNavbar from "../components/NavbarMain"
 import DarkFooter from "../components/DarkFooter"
-const rsvpURL = "https://forms.gle/t9XZkFFQujcfEWFM8";
+import ZoomMeetingImage from "../assets/flyers/WGFSZoomWorkshop-March21.png"
+import ZoomMeetingImage2 from "../assets/flyers/FinancialEmpowermentFlyerMarch9-21.png"
 
+const rsvpURL = "https://forms.gle/ecpUooh9y6yApJGPA";
+const rsvpURL2 = "https://us02web.zoom.us/j/4547260931?pwd=ZmhtYUREbEo0clhPcEt4WHdyZG9EZz09";
 const IndexPage = () => (
   <Layout>
     <MainNavbar />
@@ -39,7 +42,8 @@ const IndexPage = () => (
       margin: `0 auto`,
     }}>
       <h1 className="blue text-center">Upcoming Events</h1>
-      <div className="d-flex flex-column flex-lg-row justify-content-center">
+      <hr />
+      <div className="d-flex flex-column flex-lg-row justify-content-center" style={{ marginBottom: `20px`}}>
         <div className="d-flex flex-column align-items-center p-4">
           <a href={rsvpURL} target="_blank"><img src={ZoomMeetingImage} style={{
             // maxHeight: `530px`,
@@ -48,26 +52,26 @@ const IndexPage = () => (
         </div>
         <div className="p-4 mt-2 mt-md-0" style={{ fontSize: `18px` }}>
           <div>
-            <h2>Meeting Information</h2>
+            <h3>Estate & Financial Planning Workshop</h3>
             <h4 className="text-muted"><a href={rsvpURL} target="_blank">Please RSVP now to join!</a></h4>
 
-            <div className="mb-2 meeting-list-detail">
+            <div className="mb-3 meeting-list-detail">
               <div><FaCalendarAlt className="blue"></FaCalendarAlt></div>
               <div>
                 <strong>Date:</strong>
-                <div>Saturday, February 20, 2021</div>
+                <div>Saturday, March 20, 2021</div>
               </div>
             </div>
 
-            <div className="mb-2 meeting-list-detail">
+            <div className="mb-3 meeting-list-detail">
               <div><FaClock className="blue"></FaClock></div>
               <div>
                 <strong>Time:</strong>
-                <div>9:00am - 12:00pm (Pacific / PST)</div>
+                <div>9:00am (Pacific / PST)</div>
               </div>
             </div>
 
-            <div className="mb-2 meeting-list-detail">
+            <div className="mb-3 meeting-list-detail">
               <div><FaMapMarkerAlt className="blue"></FaMapMarkerAlt></div>
               <div>
                 <strong>Where:</strong>
@@ -75,7 +79,7 @@ const IndexPage = () => (
               </div>
             </div>
 
-            <div className="mb-4 meeting-list-detail">
+            <div className="mb-3 meeting-list-detail">
               <div><FaThumbsUp className="blue"></FaThumbsUp></div>
               <div>
                 <strong>RSVP:</strong>
@@ -87,6 +91,60 @@ const IndexPage = () => (
           </div>
         </div>
       </div>
+        
+      <hr />
+
+      
+      <div className="d-flex flex-column flex-lg-row justify-content-center">
+        
+        <div className="p-4 mt-2 mt-md-0" style={{ fontSize: `18px`, flex: '1' }}>
+          <div>
+            <h3>Financial Empowerment</h3>
+            {/* <h4 className="text-muted"><div>RSVP to mritter@wilshiregfs.com</div><div className="mt-2 mb-2">or call (213) 972-8105 to join!</div></h4> */}
+
+            <div className="mb-3 meeting-list-detail">
+              <div><FaCalendarAlt className="blue"></FaCalendarAlt></div>
+              <div>
+                <strong>Date:</strong>
+                <div>Tuesday, March 9, 2021</div>
+              </div>
+            </div>
+
+            <div className="mb-3 meeting-list-detail">
+              <div><FaClock className="blue"></FaClock></div>
+              <div>
+                <strong>Time:</strong>
+                <div>6:30pm (Pacific / PST)</div>
+              </div>
+            </div>
+
+            <div className="mb-3 meeting-list-detail">
+              <div><FaMapMarkerAlt className="blue"></FaMapMarkerAlt></div>
+              <div>
+                <strong>Where:</strong>
+                <div>Zoom Meeting ID: 454-726-0931.<br/><a href={rsvpURL2}>{rsvpURL2}</a></div>
+              </div>
+            </div>
+
+            <div className="mb-4 meeting-list-detail">
+              <div><FaThumbsUp className="blue"></FaThumbsUp></div>
+              <div>
+                <strong>RSVP:</strong>
+                <div>mritter@wilshiregfs.com or call (213) 972-8105</div>
+              </div>
+            </div>
+
+            <i className="text-muted" style={{ fontSize: '14px' }}>For more information, please call us at (213)-972-8105</i>
+          </div>
+        </div>
+        <div className="d-flex flex-column align-items-center p-4">
+          <a href={rsvpURL2} target="_blank"><img src={ZoomMeetingImage2} style={{
+            // maxHeight: `530px`,
+            boxShadow: ` 4px 4px 8px #eee`
+          }} /></a>
+        </div>
+      </div>
+
       <div id="aboutus"></div>
     </Container>
 
