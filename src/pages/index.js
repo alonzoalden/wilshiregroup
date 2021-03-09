@@ -43,10 +43,22 @@ const IndexPage = () => (
     }}>
       <h1 className="blue text-center">Upcoming Events</h1>
       <hr />
-      <div className="d-flex flex-column flex-lg-row justify-content-center" style={{ marginBottom: `20px`}}>
+      <div className="d-flex flex-column flex-lg-row" style={{ marginBottom: `20px` }}>
+        <a href={rsvpURL2} target="_blank"><img src={ZoomMeetingImage2} style={{
+          // maxHeight: `530px`,
+          boxShadow: ` 4px 4px 8px #ddd`
+        }} /></a>
+        <div style={{width: `20px`, height: `20px`}}></div>
+        <a href={rsvpURL} target="_blank"><img src={ZoomMeetingImage} style={{
+          // maxHeight: `530px`,
+          boxShadow: ` 4px 4px 8px #ddd`
+        }} /></a>
+
+      </div>
+      {/* 
+      <div className="d-flex flex-column flex-lg-row justify-content-center" style={{ marginBottom: `20px` }}>
         <div className="d-flex flex-column align-items-center p-4">
           <a href={rsvpURL} target="_blank"><img src={ZoomMeetingImage} style={{
-            // maxHeight: `530px`,
             boxShadow: ` 4px 4px 8px #eee`
           }} /></a>
         </div>
@@ -91,16 +103,14 @@ const IndexPage = () => (
           </div>
         </div>
       </div>
-        
+
       <hr />
 
-      
+
       <div className="d-flex flex-column flex-lg-row justify-content-center">
-        
         <div className="p-4 mt-2 mt-md-0" style={{ fontSize: `18px`, flex: '1' }}>
           <div>
             <h3>Financial Empowerment</h3>
-            {/* <h4 className="text-muted"><div>RSVP to mritter@wilshiregfs.com</div><div className="mt-2 mb-2">or call (213) 972-8105 to join!</div></h4> */}
 
             <div className="mb-3 meeting-list-detail">
               <div><FaCalendarAlt className="blue"></FaCalendarAlt></div>
@@ -136,14 +146,13 @@ const IndexPage = () => (
 
             <i className="text-muted" style={{ fontSize: '14px' }}>For more information, please call us at (213)-972-8105</i>
           </div>
-        </div>
+        </div> 
         <div className="d-flex flex-column align-items-center p-4">
           <a href={rsvpURL2} target="_blank"><img src={ZoomMeetingImage2} style={{
-            // maxHeight: `530px`,
             boxShadow: ` 4px 4px 8px #eee`
           }} /></a>
         </div>
-      </div>
+      </div> */}
 
       <div id="aboutus"></div>
     </Container>
@@ -518,7 +527,7 @@ const IndexPage = () => (
       textAlign: `center`,
       width: `100%`
     }}>
-      <h1 className="blue mb-5" style={{width: `100%`}}>Our Carriers</h1>
+      <h1 className="blue mb-5" style={{ width: `100%` }}>Our Carriers</h1>
 
       <CarouselCarrierSection></CarouselCarrierSection>
       {/* <Row className="justify-content-between flex-column flex-lg-row carrier-icon-section" >
