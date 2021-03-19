@@ -28,10 +28,10 @@ import scrollTo from 'gatsby-plugin-smoothscroll'
 import MainNavbar from "../components/NavbarMain"
 import DarkFooter from "../components/DarkFooter"
 import ZoomMeetingImage from "../assets/flyers/WGFSZoomWorkshop-March21.png"
-import ZoomMeetingImage2 from "../assets/flyers/FinancialEmpowermentFlyerMarch9-21.png"
+import ZoomMeetingImage2 from "../assets/flyers/FinancialEmpowerment-april-6-2021.png"
 
 const rsvpURL = "https://forms.gle/ecpUooh9y6yApJGPA";
-const rsvpURL2 = "https://us02web.zoom.us/j/4547260931?pwd=ZmhtYUREbEo0clhPcEt4WHdyZG9EZz09";
+const rsvpURL2 = "https://forms.gle/sTb574dkpTQRt7ca8";
 const IndexPage = () => (
   <Layout>
     <MainNavbar />
@@ -44,14 +44,16 @@ const IndexPage = () => (
       <h1 className="blue text-center">Upcoming Events</h1>
       <hr />
       <div className="d-flex flex-column flex-lg-row" style={{ marginBottom: `20px` }}>
-        <a href={rsvpURL2} target="_blank"><img src={ZoomMeetingImage2} style={{
-          // maxHeight: `530px`,
-          boxShadow: ` 4px 4px 8px #ddd`
-        }} /></a>
-        <div style={{width: `20px`, height: `20px`}}></div>
         <a href={rsvpURL} target="_blank"><img src={ZoomMeetingImage} style={{
-          // maxHeight: `530px`,
-          boxShadow: ` 4px 4px 8px #ddd`
+          width: `100%`,
+          height: `100%`,
+          boxShadow: `4px 4px 8px #ddd`
+        }} /></a>
+        <div style={{width: `96px`, height: `74px`}}></div>
+        <a href={rsvpURL2} target="_blank"><img src={ZoomMeetingImage2} style={{
+          width: `100%`,
+          height: `100%`,
+          boxShadow: `4px 4px 8px #ddd`
         }} /></a>
 
       </div>
