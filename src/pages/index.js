@@ -27,10 +27,10 @@ import LandingPageHeader from "../components/LandingPageHeader"
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import MainNavbar from "../components/NavbarMain"
 import DarkFooter from "../components/DarkFooter"
-import ZoomMeetingImage from "../assets/flyers/WGFSZoomWorkshop-March21.png"
-import ZoomMeetingImage2 from "../assets/flyers/FinancialEmpowerment-april-6-2021.png"
+import ZoomMeetingImage from "../assets/flyers/WGFSEstateFinancialPlanningZoomWorkshopApril21.png"
+import ZoomMeetingImage2 from "../assets/flyers/FinancialEmpowerment-April6Invitation.png"
 
-const rsvpURL = "https://forms.gle/ecpUooh9y6yApJGPA";
+const rsvpURL = "https://forms.gle/VCGfxM657RV5s8Q1A";
 const rsvpURL2 = "https://forms.gle/sTb574dkpTQRt7ca8";
 const IndexPage = () => (
   <Layout>
@@ -44,17 +44,21 @@ const IndexPage = () => (
       <h1 className="blue text-center">Upcoming Events</h1>
       <hr />
       <div className="d-flex flex-column flex-lg-row" style={{ marginBottom: `20px` }}>
-        <a href={rsvpURL} target="_blank"><img src={ZoomMeetingImage} style={{
-          width: `100%`,
-          height: `100%`,
-          boxShadow: `4px 4px 8px #ddd`
-        }} /></a>
-        <div style={{width: `96px`, height: `74px`}}></div>
-        <a href={rsvpURL2} target="_blank"><img src={ZoomMeetingImage2} style={{
-          width: `100%`,
-          height: `100%`,
-          boxShadow: `4px 4px 8px #ddd`
-        }} /></a>
+        <div style={{flex: `1`}}>
+          <a href={rsvpURL} target="_blank"><img src={ZoomMeetingImage} style={{
+            width: `100%`,
+            height: `100%`,
+            boxShadow: `4px 4px 8px #ddd`,
+          }} /></a>
+        </div>
+        <div style={{ width: `96px`, height: `74px` }}></div>
+        <div style={{ flex: `1` }}>
+          <a href={rsvpURL2} target="_blank"><img src={ZoomMeetingImage2} style={{
+            width: `100%`,
+            height: `100%`,
+            boxShadow: `4px 4px 8px #ddd`,
+          }} /></a>
+        </div>
 
       </div>
       {/* 
