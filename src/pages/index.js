@@ -27,8 +27,8 @@ import LandingPageHeader from "../components/LandingPageHeader"
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import MainNavbar from "../components/NavbarMain"
 import DarkFooter from "../components/DarkFooter"
-import ZoomMeetingImage from "../assets/flyers/WGFSEstateFinancialPlanningZoomWorkshopApril21.png"
-import ZoomMeetingImage2 from "../assets/flyers/FinancialEmpowerment-April6Invitation.png"
+import ZoomMeetingImage from "../assets/flyers/WGFS Estate Financial Planning Zoom Workshop Flyer - may2021.png"
+import ZoomMeetingImage2 from "../assets/flyers/WGFS Financial Empowerment Flyer - may2021.png"
 
 const rsvpURL = "https://forms.gle/VCGfxM657RV5s8Q1A";
 const rsvpURL2 = "https://forms.gle/sTb574dkpTQRt7ca8";

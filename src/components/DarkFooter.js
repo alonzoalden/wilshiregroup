@@ -82,7 +82,7 @@ function DarkFooter() {
                 href="https://ims4u.net/"
                 target="_blank"
               >
-                Admin Tools
+                Agent Website
               </a>
             </li>
           </ul>
