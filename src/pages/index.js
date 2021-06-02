@@ -28,10 +28,10 @@ import scrollTo from 'gatsby-plugin-smoothscroll'
 import MainNavbar from "../components/NavbarMain"
 import DarkFooter from "../components/DarkFooter"
 import ZoomMeetingImage from "../assets/flyers/WGFS Estate Financial Planning Zoom Workshop June21.png"
-import ZoomMeetingImage2 from "../assets/flyers/WGFS Financial Empowerment Flyer June-1-21.png"
+import ZoomMeetingImage2 from "../assets/flyers/WGFS Financial Empowerment FlyerJune2.png"
 
 const rsvpURL = "https://forms.gle/GQ8KcNg9hBsA2f149";
-const rsvpURL2 = "https://forms.gle/mj3T7UXJgdEFREpaA";
+const rsvpURL2 = "https://forms.gle/mMCf6xFsAH1nqtAx5";
 const IndexPage = () => (
   <Layout>
     <MainNavbar />
