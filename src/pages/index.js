@@ -225,33 +225,6 @@ const IndexPage = () => (
       <div id="services"></div>
     </Container>
 
-    {/* <Container style={{
-      margin: `0 auto`,
-      display: `flex`,
-      flexDirection: `column`,
-      alignItems: `center`,
-      textAlign: `center`
-    }}>
-      <div className="mb-5" style={{ padding: `0 60px` }}>
-        <div style={{
-          position: `absolute`,
-          left: `48px`,
-          opacity: ` 0.1`,
-          fontSize: `90px`,
-          marginTop: `-30px`
-        }}>
-          <FaQuoteLeft />
-        </div>
-
-        <h3 style={{
-          fontWeight: 100
-        }}><i>Our dedicated team of insurance and financial professionals are here to protect you and your loved ones for years to come.</i></h3>
-        <h3 style={{
-          fontWeight: 100
-        }}>- Wilshire Group Financial Services</h3>
-        <img alt="Wilshire Group Financial Services Logo" src={Logo} />
-      </div>
-    </Container> */}
     <Container className="mt-5" style={{
       margin: `0 auto`,
       paddingBottom: `40px`,
