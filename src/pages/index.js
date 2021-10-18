@@ -27,11 +27,11 @@ import LandingPageHeader from "../components/LandingPageHeader"
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import MainNavbar from "../components/NavbarMain"
 import DarkFooter from "../components/DarkFooter"
-import ZoomMeetingImage from "../assets/flyers/WGFS Estate Financial Planning Zoom Workshop Flyer August21.png"
-import ZoomMeetingImage2 from "../assets/flyers/WGFS Financial Empowerment Flyer sept7.png"
+import ZoomMeetingImage from "../assets/flyers/WGFS Estate Financial Planning Zoom Workshop Flyer - oct16.png"
+import ZoomMeetingImage2 from "../assets/flyers/WGFS Financial Empowerment Flyer nov-2-21.png"
 
-const rsvpURL = "https://forms.gle/2qQ3cfU4S3irfDdE7";
-const rsvpURL2 = "https://forms.gle/39Cn6bhd4HPXS2Y3A";
+const rsvpURL = "https://forms.gle/zkio9tYBwNssueBPA";
+const rsvpURL2 = "https://forms.gle/KxGVJ1BjVUpTUevK8";
 const IndexPage = () => (
   <Layout>
     <MainNavbar />
