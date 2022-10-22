@@ -1,24 +1,11 @@
 import React from "react";
-
-// reactstrap components
 import {
   Container,
   Row,
   Col,
   Carousel,
   CarouselItem,
-  CarouselIndicators,
 } from "reactstrap";
-
-// core components
-
-import Carrier1 from "../assets/images/american-national.jpeg"
-import Carrier2 from "../assets/images/assurity-logo-0-150x150.png"
-import Carrier3 from "../assets/images/john-hancock-logo.png"
-import Carrier4 from "../assets/images/lincoln_financial.jpg"
-import Carrier5 from "../assets/images/united-home-life.png"
-import Carrier6 from "../assets/images/OneAmerica-logo.jpg"
-
 
 const items = [
   {
@@ -72,63 +59,65 @@ function CarouselCarrierSection() {
   };
   return (
     <>
-      <div id="carousel" className="carriers" style={{ padding: `0 32px 32px 32px;` }}>
-        <Container>
-
-          <Row className="justify-content-center align-items-center">
-            <Col className="d-flex justify-content-center align-items-center">
-              <Carousel
-                activeIndex={activeIndex}
-                next={next}
-                previous={previous}
-                ride={"carousel"}
-              >
-                {/* <CarouselIndicators
-                  items={items}
+      <Container className="column-to-row" style={{
+        padding: `72px`,
+        margin: `0 auto`,
+        textAlign: `center`,
+        width: `100%`
+      }}>
+        <h1 className="blue mb-5" style={{ width: `100%` }}>Our Carriers</h1>
+        <div id="carousel" className="carriers" style={{ padding: `0 32px 32px 32px;` }}>
+          <Container>
+            <Row className="justify-content-center align-items-center">
+              <Col className="d-flex justify-content-center align-items-center">
+                <Carousel
                   activeIndex={activeIndex}
-                  onClickHandler={goToIndex}
-                /> */}
-                {items.map((item) => {
-                  return (
-                    <CarouselItem
-                      onExiting={onExiting}
-                      onExited={onExited}
-                      key={item.src}
-                    >
-                      <div style={{height: `100%`, display: `flex`, alignItems: `center`, justifyContent: `center`}}><img src={item.src} alt={item.altText} /></div>
-                      <div className="carousel-caption">
-                        <a href={item.url} target='_blank'><strong>Visit Website</strong></a>
-                      </div>
-                    </CarouselItem>
-                  );
-                })}
-                <a
-                  className="carousel-control-prev"
-                  data-slide="prev"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    previous();
-                  }}
-                  role="button"
+                  next={next}
+                  previous={previous}
+                  ride={"carousel"}
                 >
-                  <i className="now-ui-icons arrows-1_minimal-left"></i>
-                </a>
-                <a
-                  className="carousel-control-next"
-                  data-slide="next"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    next();
-                  }}
-                  role="button"
-                >
-                  <i className="now-ui-icons arrows-1_minimal-right"></i>
-                </a>
-              </Carousel>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+                  {items.map((item) => {
+                    return (
+                      <CarouselItem
+                        onExiting={onExiting}
+                        onExited={onExited}
+                        key={item.src}
+                      >
+                        <div style={{height: `100%`, display: `flex`, alignItems: `center`, justifyContent: `center`}}><img src={item.src} alt={item.altText} /></div>
+                        <div className="carousel-caption">
+                          <a href={item.url} target='_blank'><strong>Visit Website</strong></a>
+                        </div>
+                      </CarouselItem>
+                    );
+                  })}
+                  <a
+                    className="carousel-control-prev"
+                    data-slide="prev"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      previous();
+                    }}
+                    role="button"
+                  >
+                    <i className="now-ui-icons arrows-1_minimal-left"></i>
+                  </a>
+                  <a
+                    className="carousel-control-next"
+                    data-slide="next"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      next();
+                    }}
+                    role="button"
+                  >
+                    <i className="now-ui-icons arrows-1_minimal-right"></i>
+                  </a>
+                </Carousel>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      </Container>
     </>
   );
 }

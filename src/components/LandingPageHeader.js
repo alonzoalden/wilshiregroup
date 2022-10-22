@@ -14,15 +14,17 @@ function LandingPageHeader() {
         pageHeader.current.style.transform =
           "translate3d(0," + windowScrollTop + "px,0)";
       };
+
       window.addEventListener("scroll", updateScroll);
       return function cleanup() {
         window.removeEventListener("scroll", updateScroll);
       };
     }
   });
+
   return (
     <>
-      <div className="page-header page-header-small" 
+      <div className="page-header page-header-small"
         style={{
           height: `100vh`,
           minHeight: `100vh`,
@@ -31,9 +33,6 @@ function LandingPageHeader() {
           color: `#fff`,
           position: `relative`,
           overflow: `hidden`,
-          //background: `linear-gradient(0deg,rgba(44,44,44,.2),rgba(3,161,224,.6))`
-          // backgroundColor: `#1c93e2`,
-          // opacity: `.86`,
           transition: `background .3s,border-radius .3s,opacity .3s`
         }}>
         <div
@@ -69,7 +68,7 @@ function LandingPageHeader() {
                 className="btn btn-info btn-lg mr-5 btn-info-white flex-center"
                 color="info"
                 href="tel:213-972-8105"
-              > 
+              >
                 <span className="mr-3">213-972-8105</span>
                 <FaPhone/>
               </Button>

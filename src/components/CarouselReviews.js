@@ -1,6 +1,4 @@
 import React from "react";
-
-// reactstrap components
 import {
   Container,
   Row,
@@ -9,8 +7,7 @@ import {
   CarouselItem,
   CarouselIndicators,
 } from "reactstrap";
-
-// core components
+import FamilyBeach from "../assets/images/family-beach.png"
 
 const items = [
   {
@@ -60,61 +57,75 @@ function CarouselReviewsSection() {
     setActiveIndex(newIndex);
   };
   return (
-      <div className="w-100" id="carousel-reviews" style={{padding: `16px`}}>
-        <Container>
-          <Row className="justify-content-center align-items-center">
-            <Col className="d-flex justify-content-center align-items-center">
-              <Carousel
-                ride={"carousel"}
-                activeIndex={activeIndex}
-                next={next}
-                previous={previous}
-              >
-                <CarouselIndicators
-                  items={items}
-                  activeIndex={activeIndex}
-                  onClickHandler={goToIndex}
-                />
-                {items.map((item) => {
-                  return (
-                    <CarouselItem
-                      onExiting={onExiting}
-                      onExited={onExited}
-                      key={item.author}
+    <>
+      <Container fluid className="reviews big-window" style={{
+        padding: `40px`,
+        margin: `0 auto`,
+        textAlign: `center`,
+        background: `url(${FamilyBeach})`,
+        backgroundSize: `cover`,
+        backgroundPosition: `center center`,
+        width: `100%`,
+        height: `100%`,
+      }}>
+        <div className="d-flex align-items-center justify-content-center w-100" style={{ minHeight: `300px` }}>
+          <div className="w-100" id="carousel-reviews" style={{padding: `16px`}}>
+            <Container>
+              <Row className="justify-content-center align-items-center">
+                <Col className="d-flex justify-content-center align-items-center">
+                  <Carousel
+                    ride={"carousel"}
+                    activeIndex={activeIndex}
+                    next={next}
+                    previous={previous}
+                  >
+                    <CarouselIndicators
+                      items={items}
+                      activeIndex={activeIndex}
+                      onClickHandler={goToIndex}
+                    />
+                    {items.map((item) => {
+                      return (
+                        <CarouselItem
+                          onExiting={onExiting}
+                          onExited={onExited}
+                          key={item.author}
+                        >
+                          <h3 style={{fontWeight: `700`, textShadow: `2px 2px 4px #f`}}>{item.message}</h3>
+                          <strong>- {item.author}</strong>
+                        </CarouselItem>
+                      );
+                    })}
+                    <a
+                      className="carousel-control-prev"
+                      data-slide="prev"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        previous();
+                      }}
+                      role="button"
                     >
-                      <h3 style={{fontWeight: `700`, textShadow: `2px 2px 4px #f`}}>{item.message}</h3>
-                      <strong>- {item.author}</strong>
-                      
-                    </CarouselItem>
-                  );
-                })}
-                <a
-                  className="carousel-control-prev"
-                  data-slide="prev"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    previous();
-                  }}
-                  role="button"
-                >
-                  <i className="now-ui-icons arrows-1_minimal-left"></i>
-                </a>
-                <a
-                  className="carousel-control-next"
-                  data-slide="next"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    next();
-                  }}
-                  role="button"
-                >
-                  <i className="now-ui-icons arrows-1_minimal-right"></i>
-                </a>
-              </Carousel>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+                      <i className="now-ui-icons arrows-1_minimal-left"></i>
+                    </a>
+                    <a
+                      className="carousel-control-next"
+                      data-slide="next"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        next();
+                      }}
+                      role="button"
+                    >
+                      <i className="now-ui-icons arrows-1_minimal-right"></i>
+                    </a>
+                  </Carousel>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+        </div>
+      </Container>
+    </>
   );
 }
 
