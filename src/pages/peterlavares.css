@@ -1,11 +1,12 @@
 .profile-header {
     background-color: #2CA8FF;
-    min-height: 50vh !important;
-    height: 50vh !important;
+    min-height: 45vh !important;
+    height: 45vh !important;
 }
 .header-title {
     font-weight: 600;
     margin-bottom: 6px;
+    color: #111;
 }
 .header-sub-title {
     font-size: 18px;
@@ -43,7 +44,8 @@
 .profile-header-profile-image {
     width: 159px;
     height: 159px;
-    bottom: -80px;
+    bottom: 0;
+    margin-bottom: -80px;
     position: absolute;
     background-repeat: no-repeat;
     z-index: 2;
@@ -52,7 +54,7 @@
     box-shadow: 1px 2px 4px #0a0a0a;
 }
 .profile-description {
-    margin-top: 102px;
+    margin-top: 90px;
 }
 .profile-button-list {
     display: flex;

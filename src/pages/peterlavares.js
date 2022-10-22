@@ -3,28 +3,28 @@ import React from "react"
 import Layout from "../components/layout"
 import { Button, Container } from "reactstrap";
 import { FaPhone } from 'react-icons/fa';
-import ProfileImage from "../assets/images/profile/peterlavares.png"
+import profileImage from "../assets/images/profile/PeterLavares.png"
 import headerImage from "../assets/images/peterbackground.jpg"
 import "./peterlavares.css"
 
 const PeterLavaresPage = () => {
 
-  let pageHeader = React.createRef();
+  // let pageHeader = React.createRef();
 
-  React.useEffect(() => {
-    if (window.innerWidth > 991) {
-      const updateScroll = () => {
-        let windowScrollTop = window.pageYOffset / 3;
-        pageHeader.current.style.transform =
-          "translate3d(0," + windowScrollTop + "px,0)";
-      };
+  // React.useEffect(() => {
+  //   if (window.innerWidth > 991) {
+  //     const updateScroll = () => {
+  //       let windowScrollTop = window.pageYOffset / 3;
+  //       pageHeader.current.style.transform =
+  //         "translate3d(0," + windowScrollTop + "px,0)";
+  //     };
 
-      window.addEventListener("scroll", updateScroll);
-      return function cleanup() {
-        window.removeEventListener("scroll", updateScroll);
-      };
-    }
-  });
+  //     window.addEventListener("scroll", updateScroll);
+  //     return function cleanup() {
+  //       window.removeEventListener("scroll", updateScroll);
+  //     };
+  //   }
+  // });
   return <Layout>
 
     <div className="profile-header page-header page-header-small clear-filter d-flex flex-column align-items-center justify-content-center " filter-color="blue">
@@ -33,13 +33,12 @@ const PeterLavaresPage = () => {
           style={{
             backgroundImage: `url(${headerImage})`,
           }}
-          ref={pageHeader}
         ></div>
 
         <div
           className="profile-header-profile-image"
           style={{
-            backgroundImage: `url(${ProfileImage})`,
+            backgroundImage: `url(${profileImage})`,
         }}
         ></div>
         <Container style={{
@@ -76,7 +75,7 @@ const PeterLavaresPage = () => {
 
         <div className="profile-button-list">
           <Button
-                  className="btn btn-info btn-lg mr-md-5"
+                  className="btn btn-info btn-lg"
                   color="info"
                   href="tel:213-972-8105"
             >
@@ -84,21 +83,21 @@ const PeterLavaresPage = () => {
               <FaPhone />
           </Button>
           <Button
-                  className="btn btn-info btn-lg mr-md-5"
+                  className="btn btn-info btn-lg"
                   color="info"
                   href="https://www.facebook.com/petersam.lavares"
             >
               <span>Facebook</span>
           </Button>
           <Button
-                  className="btn btn-info btn-lg mr-md-5"
+                  className="btn btn-info btn-lg"
                   color="info"
                   href="https://www.linkedin.com/in/peter-lavares-6aa35b141/"
             >
               <span>LinkedIn</span>
           </Button>
           <Button
-                  className="btn btn-info btn-lg mr-md-5"
+                  className="btn btn-info btn-lg"
                   color="info"
                   href="http://wilshiregfs.com"
                   target="_blank"
@@ -106,7 +105,7 @@ const PeterLavaresPage = () => {
               <span >Wilshire Group</span>
           </Button>
           <Button
-                  className="btn btn-info btn-lg mr-md-5"
+                  className="btn btn-info btn-lg"
                   color="info"
                   href="mailto:plavares@wilshiregfs.com"
             >
