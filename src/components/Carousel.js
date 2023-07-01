@@ -1,4 +1,9 @@
 import React from "react";
+import BelleLavares from "../assets/images/profile/BelleLavares.jpg";
+import ErlinDahl from "../assets/images/profile/ErlinDahl.jpg";
+import SolLoualhati from "../assets/images/profile/SolLoualhati.jpg";
+import JoannaDellosa from "../assets/images/profile/JoannaDellosa.png";
+import PeterLavares from "../assets/images/profile/PeterLavares.png";
 
 // reactstrap components
 import {
@@ -14,27 +19,27 @@ import {
 
 const items = [
   {
-    src: require("../assets/images/profile/BelleLavares.jpg"),
+    src: BelleLavares,
     altText: "Belle Lavares",
     caption: "Belle Lavares",
   },
   {
-    src: require("../assets/images/profile/ErlinDahl.jpg"),
+    src: ErlinDahl,
     altText: "Erlin Dahl",
     caption: "Erlin Dahl",
   },
   {
-    src: require("../assets/images/profile/SolLoualhati.jpg"),
+    src: SolLoualhati,
     altText: "Sol Loualhati",
     caption: "Sol Loualhati",
   },
   {
-    src: require("../assets/images/profile/JoannaDellosa.png"),
+    src: JoannaDellosa,
     altText: "Joanna Dellosa",
     caption: "Joanna Dellosa",
   },
   {
-    src: require("../assets/images/profile/PeterLavares.png"),
+    src: PeterLavares,
     altText: "Peter Lavares",
     caption: "Peter Lavares",
   }

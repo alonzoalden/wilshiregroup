@@ -2,8 +2,8 @@ import React from "react";
 import { Container } from "reactstrap";
 import ZoomMeetingImage from "../assets/flyers/WGFS Estate Financial Planning Zoom Workshop Flyer.png";
 import ZoomMeetingImage2 from "../assets/flyers/WGFS Financial Empowerment Flyer.png";
-const rsvpURL = "https://us02web.zoom.us/meeting/register/tZMlfumgrDMtH9F05HLY3nuRdGCCqQI2fG4z";
-const rsvpURL2 = "https://us02web.zoom.us/meeting/register/tZYsdeGqpz0uGNLOPMlletVIq9-oCHJ-gkCo";
+const rsvpURL = "https://us02web.zoom.us/meeting/register/tZEvcuCgqTIvG9ZhnCd6vl1CwItBcxz9ZQIx";
+const rsvpURL2 = "https://us02web.zoom.us/meeting/register/tZIpdO6grjgqGd38XgYtadFWLZWe7VP6yANp";
 
 function UpcomingEvents() {
 

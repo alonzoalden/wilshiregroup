@@ -37,12 +37,9 @@ function LandingPageHeader() {
         }}>
         <div
           className="page-header-image"
-          style={{
-            backgroundImage: "url(" + require("../assets/images/losangeles.jpg") + ")",
-          }}
           ref={pageHeader}
         >
-          <div class="overlay"></div>
+          <div className="overlay"></div>
         </div>
         <Container style={{
           margin: `0 auto`,

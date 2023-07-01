@@ -6,30 +6,36 @@ import {
   Carousel,
   CarouselItem,
 } from "reactstrap";
+import AmericanNational from "../assets/images/american-national.jpeg";
+import AssurityLogo from "../assets/images/assurity-logo-0-150x150.png";
+import JohnHancockLogo from "../assets/images/john-hancock-logo.png";
+import LincolnFinancial from "../assets/images/lincoln_financial.jpg";
+import UnitedHomeLife from "../assets/images/united-home-life.png";
+import OneAmericaLogo from "../assets/images/OneAmerica-logo.jpg";
 
 const items = [
   {
-    src: require("../assets/images/american-national.jpeg"),
+    src: AmericanNational,
     url: 'https://img.anicoweb.com/wps/portal/img/home'
   },
   {
-    src: require("../assets/images/assurity-logo-0-150x150.png"),
+    src: AssurityLogo,
     url: 'https://assurelink.assurity.com'
   },
   {
-    src: require("../assets/images/john-hancock-logo.png"),
+    src: JohnHancockLogo,
     url: 'https://advisor.johnhancockinsurance.com/'
   },
   {
-    src: require("../assets/images/lincoln_financial.jpg"),
+    src: LincolnFinancial,
     url: 'https://www.lfg.com/public/individual'
   },
   {
-    src: require("../assets/images/united-home-life.png"),
+    src: UnitedHomeLife,
     url: 'https://www.unitedhomelife.com/UnitedHomeLife/login.jsp'
   },
   {
-    src: require("../assets/images/OneAmerica-logo.jpg"),
+    src: OneAmericaLogo,
     url: 'https://www.oneamerica.com/'
   }
 ];

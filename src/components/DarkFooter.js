@@ -46,7 +46,7 @@ function DarkFooter() {
           <div className="d-flex flex-column">
             <span>(213) 972-8105</span>
             <span>880 West 1st St #614, Los Angeles, CA 90012</span>
-            <span>blavares@wilshiregfs.com</span>
+            {/* <span>blavares@wilshiregfs.com</span> */}
           </div>
         </div>
         <div className="links w-100 mt-3">
@@ -79,7 +79,7 @@ function DarkFooter() {
             </li>
             <li>
               <a
-                href="https://ims4u.net/"
+                href="https://imsbga.com/"
                 target="_blank"
               >
                 Agent Website

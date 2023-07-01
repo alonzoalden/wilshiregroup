@@ -77,15 +77,17 @@ const PeterLavaresPage = () => {
           <Button
                   className="btn btn-info btn-lg"
                   color="info"
-                  href="tel:213-972-8105"
+                  href="tel:213-447-2994"
+                  style={{padding: `15px 35px`}}
             >
-              <span className="mr-3">213-972-8105</span>
+              <span className="mr-3">213-447-2994</span>
               <FaPhone />
           </Button>
           <Button
                   className="btn btn-info btn-lg"
                   color="info"
                   href="https://www.facebook.com/petersam.lavares"
+                  target="_blank"
             >
               <span>Facebook</span>
           </Button>
@@ -93,6 +95,7 @@ const PeterLavaresPage = () => {
                   className="btn btn-info btn-lg"
                   color="info"
                   href="https://www.linkedin.com/in/peter-lavares-6aa35b141/"
+                  target="_blank"
             >
               <span>LinkedIn</span>
           </Button>
