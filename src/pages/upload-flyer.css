@@ -18,7 +18,7 @@ button.long {
     padding-bottom: 32px;
 }
 .upload-section:first-of-type {
-    border-right: 1px solid #eaeaea;
+    border-right: 1px solid #eeeeee;
     padding-right: 24px;
 }
 .upload-section:last-of-type {
@@ -32,14 +32,14 @@ button.long {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid #dddddd;
 }
 .logo-img {
     width: 400px;
 }
 .placeholder-image {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 425px;
     background-color: #eeeeee;
     border-radius: 4px;
     color: #111111;
@@ -78,4 +78,8 @@ input.form-control {
     .logo-img {
         width: 300px;
     }
+}
+.preview-img {
+    width: 300px;
+    display: block;
 }
