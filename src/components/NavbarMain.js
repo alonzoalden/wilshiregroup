@@ -24,7 +24,12 @@ import scrollTo from 'gatsby-plugin-smoothscroll'
 function MainNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
+
+  const isBrowser = () => typeof window !== "undefined"
   React.useEffect(() => {
+    if (!isBrowser) {
+      return;
+    }
     const updateNavbarColor = () => {
       if (
         document.documentElement.scrollTop > 399 ||

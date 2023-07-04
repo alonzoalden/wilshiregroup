@@ -5,9 +5,16 @@ import { Button, Container } from "reactstrap";
 import { FaInfo, FaPhone } from 'react-icons/fa';
 import scrollTo from 'gatsby-plugin-smoothscroll'
 function LandingPageHeader() {
+
+  const isBrowser = () => typeof window !== "undefined"
+
   let pageHeader = React.createRef();
 
   React.useEffect(() => {
+
+    if (!isBrowser) {
+      return;
+    }
     if (window.innerWidth > 991) {
       const updateScroll = () => {
         let windowScrollTop = window.pageYOffset / 3;

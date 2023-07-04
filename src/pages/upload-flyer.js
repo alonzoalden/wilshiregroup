@@ -72,26 +72,43 @@ const UploadFlyerPage = (props) => {
         console.log(formState);
 
         e.preventDefault();
-        // const form = e.target;
-        // setServerState({ submitting: true });
-        // setFormState({
-        //     ...formState,
-        // })
-        // const data = {
-        //     ...formState,
-        // }
-        // axios({
-        //     method: "post",
-        //     url: "https://wilshiregfs.com/api/review",
-        //     //url: "http://localhost:3999/api/review",
-        //     data: { ...data }
-        // })
-        //     .then(r => {
-        //         handleServerResponse(true, "Thanks, we appreciate your feedback!", form);
-        //     })
-        //     .catch(r => {
-        //         handleServerResponse(false, r.response.data.error, form);
-        //     });
+        const form = e.target;
+        setServerState({ submitting: true });
+        setFormState({
+            ...formState,
+        })
+
+        const data = {
+            link1: formState.link1,
+            link2: formState.link2,
+            flyer1: formState.flyer1,
+            flyer2: formState.flyer2
+
+        }
+        const formData = new FormData();
+        formData.append('file', formState.flyer1);
+        //data.flyer2.append('file', formState.flyer2);
+        console.log(data);
+        const config = {
+            headers: { 'content-type': 'multipart/form-data' }
+        }
+        axios({
+            config,
+            method: "post",
+
+            // prod mode
+            url: "https://wilshiregfs.com/api/upload",
+
+            // dev mode
+            // url: "http://localhost:3999/api/photo",
+            data: formData
+        })
+            .then(r => {
+                handleServerResponse(true, "Thanks, we appreciate your feedback!", form);
+            })
+            .catch(r => {
+                handleServerResponse(false, r.response, form);
+            });
 
     };
     const onSelectFile = event => {

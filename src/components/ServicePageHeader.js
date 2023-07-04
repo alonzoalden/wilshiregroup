@@ -6,8 +6,14 @@ import HandShakeImage from "../assets/images/hand-shake-bg.jpg";
 
 function ServicePageHeader() {
   let pageHeader = React.createRef();
+  const isBrowser = () => typeof window !== "undefined"
 
   React.useEffect(() => {
+    if (!isBrowser) {
+
+      return;
+
+    }
     if (window.innerWidth > 991) {
       const updateScroll = () => {
         let windowScrollTop = window.pageYOffset / 3;
