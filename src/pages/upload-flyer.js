@@ -1,23 +1,47 @@
 
 import React, { useState } from "react"
+import "./upload-flyer.css"
 import Layout from "../components/layout"
 import axios from "axios"
 import Logo from "../assets/images/wilshirelogo.png"
 import { Button, Container } from "reactstrap"
-import { FaCheck, FaImage } from "react-icons/fa";
-import "./upload-flyer.css"
+import { FaImage } from "react-icons/fa";
+import JSONLinkData from "../../../assets/WGFS-link.json"
 
 const UploadFlyerPage = (props) => {
+
+    React.useEffect(() => {
+
+        const images = require.context('../../../assets', true, /\.(png|jpg|jpeg)$/);
+
+        let initialPreviewState = {};
+        images.keys().forEach((elem) => {
+
+            const name = elem.split('WGFS-')[1].split('.')[0];
+
+            initialPreviewState = {
+                ...initialPreviewState,
+                [name]: images(`${elem}`).default
+            }
+        })
+
+        setPreviewState({
+            ...initialPreviewState
+        })
+
+    }, []);
+
+
 
     const [serverState, setServerState] = useState({
         submitting: false,
         status: null
     });
     const [formState, setFormState] = useState({
-        link1: '',
-        flyer1: '',
-        link2: '',
-        flyer2: '',
+        flyer1: undefined,
+        flyer2: undefined,
+        link1: JSONLinkData && JSONLinkData.links[0] || '',
+        link2: JSONLinkData && JSONLinkData.links[1] || ''
     });
     const [previewState, setPreviewState] = useState({
         flyer1: '',
@@ -59,7 +83,7 @@ const UploadFlyerPage = (props) => {
 
         setServerState({
             submitting: false,
-            status: { ok, msg }
+            // status: { ok, msg }
         });
         if (ok) {
             form.reset();
@@ -69,8 +93,6 @@ const UploadFlyerPage = (props) => {
 
     const handleOnSubmit = e => {
 
-        console.log(formState);
-
         e.preventDefault();
         const form = e.target;
         setServerState({ submitting: true });
@@ -78,17 +100,13 @@ const UploadFlyerPage = (props) => {
             ...formState,
         })
 
-        const data = {
-            link1: formState.link1,
-            link2: formState.link2,
-            flyer1: formState.flyer1,
-            flyer2: formState.flyer2
-
-        }
         const formData = new FormData();
         formData.append('file', formState.flyer1);
-        //data.flyer2.append('file', formState.flyer2);
-        console.log(data);
+        formData.append('file', formState.flyer2);
+        formData.append('link', formState.link1);
+        formData.append('link', formState.link2);
+        formData.append('updateFiles', []);
+
         const config = {
             headers: { 'content-type': 'multipart/form-data' }
         }
@@ -97,14 +115,14 @@ const UploadFlyerPage = (props) => {
             method: "post",
 
             // prod mode
-            url: "https://wilshiregfs.com/api/upload",
+            // url: "https://wilshiregfs.com/api/photo",
 
             // dev mode
-            // url: "http://localhost:3999/api/photo",
+            url: "http://localhost:3999/api/photo",
             data: formData
         })
             .then(r => {
-                handleServerResponse(true, "Thanks, we appreciate your feedback!", form);
+                handleServerResponse(true, "Thanks!", form);
             })
             .catch(r => {
                 handleServerResponse(false, r.response, form);
@@ -129,11 +147,15 @@ const UploadFlyerPage = (props) => {
 
         const { name } = event.target;
         const image = event.target.files[0];
-        const preview = URL.createObjectURL(image);
+        const renamedImage = new File([image], `${name}.png`, {
+            type: image.type,
+          });
+
+        const preview = URL.createObjectURL(renamedImage);
 
         setFormState({
             ...formState,
-            [name]: image
+            [name]: renamedImage
         });
 
         setPreviewState({
@@ -149,7 +171,7 @@ const UploadFlyerPage = (props) => {
         <Layout>
             <div className="logo">
                 <a href="https://wilshiregfs.com" target="blank"><img className="logo-img" src={Logo} /></a>
-                <span>Hello, Alonzo</span>
+                <span>Hello, Alonzo </span>
             </div>
             <Container>
                 {!serverState.status ? <>
@@ -170,11 +192,11 @@ const UploadFlyerPage = (props) => {
                                                 />
                                         </div>
                                         <label>Meeting Image</label>
-                                        { formState.flyer1 ? <img className="preview-img"src={previewState.flyer1} /> :
+                                        { previewState.flyer1 ? <img className="preview-img" src={previewState.flyer1} /> :
                                             <div className="placeholder-image"><FaImage style={style} /><div>Please select a flyer</div></div>
                                         }
                                         <Button className="btn btn-outline" name="flyer1" onClick={handleClick} >
-                                            Select
+                                            { previewState.flyer1 ? 'Change' : 'Select' }
                                         </Button>
                                         <input
                                             type="file"
@@ -203,13 +225,13 @@ const UploadFlyerPage = (props) => {
                                                  />
                                         </div>
                                         {/* <label>Meeting Image { selectedFile && <FaCheck style={styleCheck}/> }</label>  */}
-                                        <label>Meeting Image </label> 
+                                        <label>Meeting Image </label>
 
-                                        { formState.flyer2 ? <img className="preview-img"src={previewState.flyer2} /> :
+                                        { previewState.flyer2 ? <img className="preview-img"src={previewState.flyer2} /> :
                                         <div className="placeholder-image"><FaImage style={style} /><div>Please select a flyer</div></div>
                                         }
                                         <Button className="btn btn-outline" name="flyer2" onClick={handleClick} disabled={serverState.submitting} >
-                                            Select
+                                            { previewState.flyer2 ? 'Change' : 'Select' }
                                         </Button>
                                         <input
                                             type="file"
@@ -229,8 +251,8 @@ const UploadFlyerPage = (props) => {
                                     </div>
                             <div>
                                     { formComplete && <h5 className="mt-4">If everything looks correct, please save.</h5> }
-                                    <Button className="btn btn-primary btn-lg" disabled={!formComplete} onClick={handleOnSubmit} type="submit">
-                                        Save
+                                    <Button className="btn btn-primary btn-lg" onClick={handleOnSubmit} type="submit" disabled={serverState.submitting}>
+                                        { serverState.submitting ? 'Saving...' : 'Save' }
                                     </Button>
                                 </div>
                             </form>
