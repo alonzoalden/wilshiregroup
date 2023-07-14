@@ -6,26 +6,6 @@ import axios from "axios"
 import Logo from "../assets/images/wilshirelogo.png"
 import { Button, Container } from "reactstrap"
 import { FaImage } from "react-icons/fa";
-import { FaPlusCircle } from "react-icons/fa";
-import {
-    Dropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-} from 'reactstrap';
-import { right } from "@popperjs/core"
-
-const Comp = () => {
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const toggle = () => setDropdownOpen((prevState) => !prevState);
-    return (<Dropdown isOpen={dropdownOpen} toggle={toggle} >
-        <DropdownToggle caret size="sm">Options</DropdownToggle>
-        <DropdownMenu>
-            <DropdownItem>Clear</DropdownItem>
-            <DropdownItem>Remove</DropdownItem>
-        </DropdownMenu>
-    </Dropdown>)
-}
 
 const UploadFlyerPage = (props) => {
 
@@ -85,8 +65,6 @@ const UploadFlyerPage = (props) => {
 
     };
 
-
-
     const handleOnSubmit = e => {
 
         e.preventDefault();
@@ -130,13 +108,17 @@ const UploadFlyerPage = (props) => {
 
     const handleServerResponse = (ok, msg, form) => {
 
-        setServerState({
-            submitting: false,
-            status: { ok, msg }
-        });
-        if (ok) {
-            form.reset();
-        }
+        setTimeout(() => {
+
+            setServerState({
+                submitting: false,
+                status: { ok, msg }
+            });
+            if (ok) {
+                form.reset();
+            }
+
+        }, 2000)
 
     };
 
@@ -186,13 +168,12 @@ const UploadFlyerPage = (props) => {
 
             const item = formState2.data[index];
             const newItem = {
+                ...item,
                 flyer: undefined,
-                link: item.link,
                 flyerUrl: undefined
             };
             const newData = [...formState2.data];
             newData[index] = newItem;
-
 
             setFormState2({
                 data: newData
@@ -231,21 +212,36 @@ const UploadFlyerPage = (props) => {
             const data = [...formState2.data];
             data.splice(index, 1);
 
+            // If removing something in middle of list, rename images as they move indexes
+            if (index < data.length) {
+
+                for (let i = index; i < data.length; i++) {
+
+                    const file = data[i].flyer;
+                    if (file) {
+
+                        const renamedImageIndex = new File([file], `flyer${i + 1}.png`,  { type: file.type });
+                        data[i].flyer = renamedImageIndex
+
+                    }
+
+                }
+
+            }
+
             setFormState2({
                 data
             });
-
         }
 
     }
     const style = { color: "#dadada", fontSize: "64px" };
-    const styleAddButton = { color: "#dadada", fontSize: "128px" };
 
     return (
         <Layout>
             <div className="logo">
                 <a href="https://wilshiregfs.com" target="blank"><img className="logo-img" src={Logo} /></a>
-                <span>Hello, Alonzo </span>
+                <span>Hello </span>
             </div>
             <Container>
                 {<>
@@ -260,16 +256,12 @@ const UploadFlyerPage = (props) => {
                         >
                             Add Flyer
                         </Button>
-                        { addNewEnabled ? '' :  <span>Please complete all flyers before adding a new one.</span> }
+                        {addNewEnabled ? '' : <span>Please complete all flyers before adding a new one.</span>}
                         <form>
                             <div className="upload-section-container">
                                 {(() => {
                                     return formState2.data.map((data, i) => (
-
                                         <div className="upload-section" key={i}>
-
-                                            {/* <Comp /> */}
-
                                             <h3>Flyer {i + 1}</h3>
                                             <div className="form-group">
                                                 <label htmlFor="exampleInputName">Meeting Link</label>
@@ -296,18 +288,11 @@ const UploadFlyerPage = (props) => {
                                                 style={{ display: 'none' }}
                                                 required
                                             />
-                                            <div className="mt-2"><Button color="link" onClick={(event) => onRemove(event, i) }>Remove</Button></div>
+                                            <div className="mt-2"><Button color="link" onClick={(event) => onRemove(event, i)}>Remove</Button></div>
                                         </div>
-
                                     ))
-
                                 })()}
-
-                                {/* <div className="upload-section placeholder-add-button">
-                                    <FaPlusCircle style={styleAddButton} onClick={onAddNewFlyer} /><div>{addNewEnabled ? 'Add a new flyer' : 'Please finish last flyer to add a new one'} </div>
-                                </div> */}
                             </div>
-
                             <div>
                                 {formComplete && <h5 className="mt-4">This is the order the flyers will appear on the website. If everything looks correct, please save.</h5>}
                                 <Button className="btn btn-primary btn-lg" onClick={handleOnSubmit} type="submit" disabled={serverState.submitting}>
@@ -315,7 +300,6 @@ const UploadFlyerPage = (props) => {
                                 </Button>
                             </div>
                         </form>
-
                     </div>
                 </>}
             </Container>
