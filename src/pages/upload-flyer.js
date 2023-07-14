@@ -75,14 +75,18 @@ const UploadFlyerPage = (props) => {
 
         formState.data.forEach((data) => {
 
-            if (data.flyer && data.link) {
+            if (data.flyer) {
 
                 formData.append('file', data.flyer);
+
+            }
+            if (data.link) {
+
                 formData.append('link', data.link);
 
             }
 
-        })
+        });
 
         axios({
             method: "post",
