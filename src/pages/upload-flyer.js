@@ -11,7 +11,7 @@ const UploadFlyerPage = (props) => {
 
     const flyerObj = { flyer: undefined, link: '', flyerUrl: undefined };
 
-    const [formState2, setFormState2] = useState({
+    const [formState, setFormState] = useState({
         data: [flyerObj]
     });
     const [serverState, setServerState] = useState({
@@ -38,7 +38,7 @@ const UploadFlyerPage = (props) => {
 
             if (data && data.length) {
 
-                setFormState2({ data });
+                setFormState({ data });
 
             }
 
@@ -52,12 +52,12 @@ const UploadFlyerPage = (props) => {
 
     React.useEffect(() => {
 
-        // Check if works
-        const hasEmptyValue = Object.values(formState2).some(val => !val);
+        const hasEmptyValue = formState.data.some((flyer) => !flyer.flyerUrl || !flyer.link );
+
         setFormComplete(!hasEmptyValue)
 
 
-    }, [formState2]);
+    }, [formState]);
 
     const handleClick = (_, index) => {
 
@@ -73,7 +73,7 @@ const UploadFlyerPage = (props) => {
 
         const formData = new FormData();
 
-        formState2.data.forEach((data) => {
+        formState.data.forEach((data) => {
 
             if (data.flyer && data.link) {
 
@@ -96,17 +96,17 @@ const UploadFlyerPage = (props) => {
             data: formData
         }).then(r => {
 
-            handleServerResponse(true, "Thanks!", form);
+            handleServerResponse(true, "Thanks!");
 
         }).catch(r => {
 
-            handleServerResponse(false, r.response, form);
+            handleServerResponse(false, r.response);
 
         });
 
     };
 
-    const handleServerResponse = (ok, msg, form) => {
+    const handleServerResponse = (ok, msg) => {
 
         setTimeout(() => {
 
@@ -114,32 +114,22 @@ const UploadFlyerPage = (props) => {
                 submitting: false,
                 status: { ok, msg }
             });
-            if (ok) {
-                form.reset();
-            }
 
         }, 2000)
 
     };
 
-    const isAddNewButtonEnabled = () => {
-
-        const lastItem = formState2.data[formState2.data.length - 1];
-
-        const lastItemCompleted = (formState2.data && formState2.data.length < 2) || (lastItem.flyerUrl && lastItem.link);
-        const enabled = lastItemCompleted && formState2.data.length < 8;
-        setAddNewEnabled(!!enabled);
-        return !!enabled;
-
-    }
-
     const onAddNewFlyer = () => {
 
-        if (isAddNewButtonEnabled()) {
+        if (formComplete) {
 
-            const data = [...formState2.data];
+            const data = [...formState.data];
             data.push(flyerObj)
-            setFormState2({ data })
+            setFormState({ data })
+
+        } else {
+
+            setAddNewEnabled(false);
 
         }
 
@@ -148,15 +138,15 @@ const UploadFlyerPage = (props) => {
     const onInputChange = (event, index) => {
 
         const { value } = event.target;
-        const item = formState2.data[index];
+        const item = formState.data[index];
         const newItem = {
             ...item,
             link: value,
         };
-        const newData = [...formState2.data];
+        const newData = [...formState.data];
         newData[index] = newItem;
 
-        setFormState2({
+        setFormState({
             data: newData
         })
 
@@ -166,16 +156,17 @@ const UploadFlyerPage = (props) => {
 
         if (!event.target.files || event.target.files.length === 0) {
 
-            const item = formState2.data[index];
+            const item = formState.data[index];
             const newItem = {
                 ...item,
                 flyer: undefined,
                 flyerUrl: undefined
             };
-            const newData = [...formState2.data];
+
+            const newData = [...formState.data];
             newData[index] = newItem;
 
-            setFormState2({
+            setFormState({
                 data: newData
             })
             return;
@@ -192,13 +183,13 @@ const UploadFlyerPage = (props) => {
 
         const newItem = {
             flyer: renamedImage,
-            link: formState2.data[index].link,
+            link: formState.data[index].link,
             flyerUrl
         };
-        const newData = [...formState2.data];
+        const newData = [...formState.data];
         newData[index] = newItem;
 
-        setFormState2({
+        setFormState({
             data: newData
         })
 
@@ -209,7 +200,7 @@ const UploadFlyerPage = (props) => {
         const confirmation = window.confirm("Are you sure you want to remove this section?");
         if (confirmation) {
 
-            const data = [...formState2.data];
+            const data = [...formState.data];
             data.splice(index, 1);
 
             // If removing something in middle of list, rename images as they move indexes
@@ -229,7 +220,7 @@ const UploadFlyerPage = (props) => {
 
             }
 
-            setFormState2({
+            setFormState({
                 data
             });
         }
@@ -247,7 +238,7 @@ const UploadFlyerPage = (props) => {
                 {<>
                     <div className="upload-page-container">
                         <h1>WGFS: Upload Flyers</h1>
-                        <h5>Please enter a link to the meeting and upload an image, or add a new flyer.</h5>
+                        <h5>Please enter a link to the meeting and upload an image, or add a new flyer. This is the order the flyers will appear on the website.</h5>
                         <Button
                             color="primary"
                             outline
@@ -256,11 +247,11 @@ const UploadFlyerPage = (props) => {
                         >
                             Add Flyer
                         </Button>
-                        {addNewEnabled ? '' : <span>Please complete all flyers before adding a new one.</span>}
+                        {(addNewEnabled || formComplete) ? '' : <span>Please complete all flyers before adding a new one.</span>}
                         <form>
                             <div className="upload-section-container">
                                 {(() => {
-                                    return formState2.data.map((data, i) => (
+                                    return formState.data.map((data, i) => (
                                         <div className="upload-section" key={i}>
                                             <h3>Flyer {i + 1}</h3>
                                             <div className="form-group">
@@ -294,8 +285,9 @@ const UploadFlyerPage = (props) => {
                                 })()}
                             </div>
                             <div>
-                                {formComplete && <h5 className="mt-4">This is the order the flyers will appear on the website. If everything looks correct, please save.</h5>}
-                                <Button className="btn btn-primary btn-lg" onClick={handleOnSubmit} type="submit" disabled={serverState.submitting}>
+                                <h5 className="mt-4">{formComplete ? 'If everything looks correct, please save.'
+                                : 'Please finish updating flyers before saving.'}</h5>
+                                <Button className="btn btn-primary btn-lg" onClick={handleOnSubmit} type="submit" disabled={serverState.submitting || !formComplete}>
                                     {serverState.submitting ? 'Saving...' : 'Save'}
                                 </Button>
                             </div>
