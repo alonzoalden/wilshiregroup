@@ -8,21 +8,28 @@ button.long {
 
 .upload-section-container {
     display: flex;
-    border-bottom: 1px solid #eeeeee;
+    flex-wrap: wrap;
     margin-bottom: 40px;
     padding-top: 24px;
 
 }
 .upload-section {
     width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+    min-height: 656px;
     padding-bottom: 32px;
+    flex-basis: 50%;
+    box-sizing: border-box;
+    border-bottom: 2px solid #dddddd;
+    padding-top: 40px;
 }
-.upload-section:first-of-type {
-    border-right: 1px solid #eeeeee;
-    padding-right: 24px;
+.upload-section:nth-child(odd) {
+    border-right: 2px solid #dddddd;
+    padding-right: 44px;
 }
-.upload-section:last-of-type {
-    padding-left: 32px;
+.upload-section:nth-child(even) {
+    padding-left: 44px;
 }
 .logo {
     width: 100%;
@@ -38,8 +45,8 @@ button.long {
     width: 400px;
 }
 .placeholder-image {
-    width: 300px;
-    height: 425px;
+    width: 400px;
+    height: 566px;
     background-color: #eeeeee;
     border-radius: 4px;
     color: #111111;
@@ -49,6 +56,20 @@ button.long {
     justify-content: center;
     align-items: center;
 }
+
+.placeholder-add-button {
+    display: flex;
+    flex-direction: column;
+    color: #999999;
+    justify-content: center;
+    align-items: center;
+
+}
+.placeholder-add-button svg:hover {
+    cursor: pointer;
+}
+
+
 input.form-control {
     max-width: 400px;
 }
@@ -62,12 +83,16 @@ input.form-control {
     .upload-section-container {
         flex-direction: column;
     }
-    .upload-section:first-of-type {
+    .upload-section {
+        width: 100%;
+        max-width: 100%;
+    }
+    .upload-section:nth-child(odd) {
         width: 100%;
         padding-right: 0;
         border-right: 0;
     }
-    .upload-section:last-of-type {
+    .upload-section:nth-child(even) {
         padding-left: 0;
     }
 }
@@ -80,6 +105,14 @@ input.form-control {
     }
 }
 .preview-img {
-    width: 300px;
+    width: 400px;
     display: block;
+}
+input.form-control {
+    max-width: 500px;
+    width: 100%;
+}
+.btn.btn-link {
+    width: initial;
+    padding: 0;
 }
