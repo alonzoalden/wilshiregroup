@@ -19,6 +19,7 @@ const UploadFlyerPage = (props) => {
     });
     const [formComplete, setFormComplete] = useState(false);
     const [addNewEnabled, setAddNewEnabled] = useState(true);
+    const [maxReachedEnabled, setMaxReachedEnabled] = useState(false);
     const hiddenFileInputRefs = React.useRef([]);
 
     React.useEffect(() => {
@@ -131,15 +132,26 @@ const UploadFlyerPage = (props) => {
 
     const onAddNewFlyer = () => {
 
-        if (formComplete) {
+        const data = [...formState.data];
+        const underMax = data.length < 8;
 
-            const data = [...formState.data];
+        if (formComplete && underMax) {
+
             data.push(flyerObj)
             setFormState({ data })
+            setAddNewEnabled(true);
 
         } else {
 
-            setAddNewEnabled(false);
+            if (underMax) {
+
+                setAddNewEnabled(false);
+
+            } else {
+
+                setMaxReachedEnabled(true);
+
+            }
 
         }
 
@@ -256,6 +268,7 @@ const UploadFlyerPage = (props) => {
                             Add Flyer
                         </Button>
                         {(addNewEnabled || formComplete) ? '' : <span>Please complete all flyers before adding a new one.</span>}
+                        {maxReachedEnabled && <span>You have reached the maximum amount of flyers.</span>}
                         <form>
                             <div className="upload-section-container">
                                 {(() => {
