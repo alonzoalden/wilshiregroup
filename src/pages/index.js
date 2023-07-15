@@ -17,7 +17,7 @@ const IndexPage = () => (
     <MainNavbar />
     <LandingPageHeader />
     <SEO title="Insurance Planning & Wealth Preservation" />
-    <div id="upcomingevents" style={{ position: `absolute`, marginTop: `-20px` }}></div>
+    <div id="upcomingevents" style={{ position: `absolute`, marginTop: `-44px` }}></div>
     <UpcomingEvents></UpcomingEvents>
     <AboutUs></AboutUs>
     <OurServices></OurServices>

@@ -10,7 +10,6 @@ import { FaImage } from "react-icons/fa";
 const UploadFlyerPage = (props) => {
 
     const flyerObj = { flyer: undefined, link: '', flyerUrl: undefined };
-
     const [formState, setFormState] = useState({
         data: [flyerObj]
     });
@@ -29,10 +28,10 @@ const UploadFlyerPage = (props) => {
 
             // prod mode
             // url: "https://wilshiregfs.com/api/photo",
-            url: "https://alonzoalden.com/api/photo",
+            //url: "https://alonzoalden.com/api/photo",
 
             // dev mode
-            // url: "http://localhost:3999/api/photo",
+            url: "http://localhost:3999/api/photo",
 
         }).then(({ data }) => {
 
@@ -58,6 +57,13 @@ const UploadFlyerPage = (props) => {
 
 
     }, [formState]);
+
+
+    const createImageFile = (file, index, type) => {
+
+        return new File([file], `flyer${index}.png`,  { type });
+
+    }
 
     const handleClick = (_, index) => {
 
@@ -93,10 +99,10 @@ const UploadFlyerPage = (props) => {
 
             // prod mode
             // url: "https://wilshiregfs.com/api/photo",
-            url: "https://alonzoalden.com/api/photo",
+            // url: "https://alonzoalden.com/api/photo",
 
             // dev mode
-            // url: "http://localhost:3999/api/photo",
+            url: "http://localhost:3999/api/photo",
             data: formData
         }).then(r => {
 
@@ -177,18 +183,15 @@ const UploadFlyerPage = (props) => {
 
         }
 
-        const { name } = event.target;
         const image = event.target.files[0];
-        const renamedImage = new File([image], `flyer${index + 1}.png`, {
-            type: image.type,
-        });
+        const renamedImage = createImageFile(image, index + 1, image.type);
 
         const flyerUrl = URL.createObjectURL(renamedImage);
 
         const newItem = {
             flyer: renamedImage,
-            link: formState.data[index].link,
-            flyerUrl
+            flyerUrl,
+            link: formState.data[index].link
         };
         const newData = [...formState.data];
         newData[index] = newItem;
@@ -207,7 +210,7 @@ const UploadFlyerPage = (props) => {
             const data = [...formState.data];
             data.splice(index, 1);
 
-            // If removing something in middle of list, rename images as they move indexes
+            // If removing something in middle of list, rename images as they shift indexes
             if (index < data.length) {
 
                 for (let i = index; i < data.length; i++) {
@@ -215,7 +218,7 @@ const UploadFlyerPage = (props) => {
                     const file = data[i].flyer;
                     if (file) {
 
-                        const renamedImageIndex = new File([file], `flyer${i + 1}.png`,  { type: file.type });
+                        const renamedImageIndex = createImageFile(file, i + 1, file.type);
                         data[i].flyer = renamedImageIndex
 
                     }
@@ -230,6 +233,7 @@ const UploadFlyerPage = (props) => {
         }
 
     }
+
     const style = { color: "#dadada", fontSize: "64px" };
 
     return (

@@ -1,0 +1,18 @@
+.flyer-section-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.flyer-section {
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+    flex-basis: 50%;
+    margin-bottom: 96px;
+}
+.flyer-section:nth-child(odd) {
+    padding-right: 48px;
+}
+.flyer-section:nth-child(even) {
+    padding-left: 48px;
+}
