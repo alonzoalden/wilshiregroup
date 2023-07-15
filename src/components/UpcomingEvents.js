@@ -17,11 +17,11 @@ function UpcomingEvents() {
             method: "get",
 
             // prod mode
-            url: "https://wilshiregfs.com/api/photo",
+            //url: "https://wilshiregfs.com/api/photo",
             // url: "https://alonzoalden.com/api/photo",
 
             // dev mode
-            // url: "http://localhost:3999/api/photo",
+            url: "http://localhost:3999/api/photo",
 
         }).then(({ data }) => {
 
@@ -29,7 +29,7 @@ function UpcomingEvents() {
 
                 setImagesState({ data });
 
-            } 
+            }
         }).catch(response => {
 
             console.log(response);
@@ -40,26 +40,26 @@ function UpcomingEvents() {
 
     return (
         <>
-            { imagesState.data && imagesState.data?.length &&
+            {imagesState.data && imagesState.data?.length &&
                 <Container className="mt-5 mb-1" style={{
                     margin: `0px auto`,
                 }}>
                     <h1 className="blue text-center">Upcoming Events</h1>
                     <hr />
-                    <div class="flyer-section-container">
+                    <div className="flyer-section-container">
                         {(() => {
                             return imagesState.data?.map((data, i) => (
 
-                                    <div class="flyer-section">
+                                <div className="flyer-section">
 
-                                        <a href={data.link} target="_blank"><img src={data.flyerUrl} style={{
-                                            width: `100%`,
-                                            maxWidth: `700px`,
-                                            height: `100%`,
-                                            boxShadow: `4px 4px 8px #ddd`,
-                                        }} /></a>
+                                    <a href={data.link} target="_blank"><img src={data.flyerUrl} style={{
+                                        width: `100%`,
+                                        maxWidth: `700px`,
+                                        height: `100%`,
+                                        boxShadow: `4px 4px 8px #ddd`,
+                                    }} /></a>
 
-                                    </div>
+                                </div>
                             ))
                         })()}
                     </div>

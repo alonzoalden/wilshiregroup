@@ -8,6 +8,7 @@
     min-width: 50%;
     max-width: 50%;
     flex-basis: 50%;
+    text-align: center;
     margin-bottom: 96px;
 }
 .flyer-section:nth-child(odd) {
@@ -15,4 +16,21 @@
 }
 .flyer-section:nth-child(even) {
     padding-left: 48px;
+}
+@media (max-width: 1137px) {
+    .flyer-section-container {
+        flex-direction: column;
+    }
+    .flyer-section {
+        width: 100%;
+        max-width: 100%;
+    }
+    .flyer-section:nth-child(odd) {
+        width: 100%;
+        padding-right: 0;
+        border-right: 0;
+    }
+    .flyer-section:nth-child(even) {
+        padding-left: 0;
+    }
 }
