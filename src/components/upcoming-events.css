@@ -17,7 +17,7 @@
 .flyer-section:nth-child(even) {
     padding-left: 48px;
 }
-@media (max-width: 1137px) {
+@media (max-width: 1199px) {
     .flyer-section-container {
         flex-direction: column;
     }
