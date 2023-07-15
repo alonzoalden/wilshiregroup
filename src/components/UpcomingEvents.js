@@ -40,7 +40,7 @@ function UpcomingEvents() {
 
     return (
         <>
-            { imagesState.data.length &&
+            { imagesState.data && imagesState.data?.length &&
                 <Container className="mt-5 mb-1" style={{
                     margin: `0px auto`,
                 }}>
