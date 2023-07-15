@@ -17,8 +17,8 @@ function UpcomingEvents() {
             method: "get",
 
             // prod mode
-            // url: "https://wilshiregfs.com/api/photo",
-            url: "https://alonzoalden.com/api/photo",
+            url: "https://wilshiregfs.com/api/photo",
+            // url: "https://alonzoalden.com/api/photo",
 
             // dev mode
             // url: "http://localhost:3999/api/photo",
@@ -29,12 +29,7 @@ function UpcomingEvents() {
 
                 setImagesState({ data });
 
-            } else {
-
-                setImagesState({ data: null });
-
-            }
-
+            } 
         }).catch(response => {
 
             console.log(response);
@@ -45,7 +40,7 @@ function UpcomingEvents() {
 
     return (
         <>
-            {imagesState.data !== null &&
+            { imagesState.data.length &&
                 <Container className="mt-5 mb-1" style={{
                     margin: `0px auto`,
                 }}>

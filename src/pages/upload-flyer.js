@@ -28,11 +28,11 @@ const UploadFlyerPage = (props) => {
             method: "get",
 
             // prod mode
-            // url: "https://wilshiregfs.com/api/photo",
-            url: "https://alonzoalden.com/api/photo",
+            url: "https://wilshiregfs.com/api/photo",
+            // url: "https://alonzoalden.com/api/photo",
 
             // dev mode
-            //url: "http://localhost:3999/api/photo",
+            // url: "http://localhost:3999/api/photo",
 
         }).then(({ data }) => {
 
@@ -99,8 +99,8 @@ const UploadFlyerPage = (props) => {
             method: "post",
 
             // prod mode
-            // url: "https://wilshiregfs.com/api/photo",
-            url: "https://alonzoalden.com/api/photo",
+            url: "https://wilshiregfs.com/api/photo",
+            // url: "https://alonzoalden.com/api/photo",
 
             // dev mode
             // url: "http://localhost:3999/api/photo",
