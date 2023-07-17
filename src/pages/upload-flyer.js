@@ -28,11 +28,11 @@ const UploadFlyerPage = (props) => {
             method: "get",
 
             // prod mode
-            url: "https://wilshiregfs.com/api/photo",
+            // url: "https://wilshiregfs.com/api/photo",
             // url: "https://alonzoalden.com/api/photo",
 
             // dev mode
-            // url: "http://localhost:3999/api/photo",
+            url: "http://localhost:3999/api/photo",
 
         }).then(({ data }) => {
 
@@ -60,9 +60,11 @@ const UploadFlyerPage = (props) => {
     }, [formState]);
 
 
-    const createImageFile = (file, index, type) => {
+    const createImageFile = (file, type) => {
 
-        return new File([file], `flyer${index}.png`,  { type });
+        const fileName = `WGFS-Flyer-${new Date().toISOString()}-${Math.floor(Math.random() * 100000)}`;
+
+        return new File([file], `${fileName}.png`,  { type });
 
     }
 
@@ -89,18 +91,17 @@ const UploadFlyerPage = (props) => {
             }
             if (data.link) {
 
-                formData.append('link', data.link);
+                formData.append('flyerInfo', { link: data.link, flyerName: data.flyer.name });
 
             }
 
         });
-
         axios({
             method: "post",
 
             // prod mode
-            url: "https://wilshiregfs.com/api/photo",
-            // url: "https://alonzoalden.com/api/photo",
+            // url: "https://wilshiregfs.com/api/photo",
+            url: "https://alonzoalden.com/api/photo",
 
             // dev mode
             // url: "http://localhost:3999/api/photo",
@@ -196,7 +197,7 @@ const UploadFlyerPage = (props) => {
         }
 
         const image = event.target.files[0];
-        const renamedImage = createImageFile(image, index + 1, image.type);
+        const renamedImage = createImageFile(image, image.type);
 
         const flyerUrl = URL.createObjectURL(renamedImage);
 
@@ -223,21 +224,21 @@ const UploadFlyerPage = (props) => {
             data.splice(index, 1);
 
             // If removing something in middle of list, rename images as they shift indexes
-            if (index < data.length) {
+            // if (index < data.length) {
 
-                for (let i = index; i < data.length; i++) {
+            //     for (let i = index; i < data.length; i++) {
 
-                    const file = data[i].flyer;
-                    if (file) {
+            //         const file = data[i].flyer;
+            //         if (file) {
 
-                        const renamedImageIndex = createImageFile(file, i + 1, file.type);
-                        data[i].flyer = renamedImageIndex
+            //             const renamedImageIndex = createImageFile(file, i + 1, file.type);
+            //             data[i].flyer = renamedImageIndex
 
-                    }
+            //         }
 
-                }
+            //     }
 
-            }
+            // }
 
             setFormState({
                 data
