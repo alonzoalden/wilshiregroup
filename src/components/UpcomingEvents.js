@@ -17,8 +17,8 @@ function UpcomingEvents() {
             method: "get",
 
             // prod mode
-            // url: "https://wilshiregfs.com/api/photo",
-            url: "https://alonzoalden.com/api/photo",
+            url: "https://wilshiregfs.com/api/photo",
+            // url: "https://alonzoalden.com/api/photo",
 
             // dev mode
             // url: "http://localhost:3999/api/photo",
@@ -55,7 +55,6 @@ function UpcomingEvents() {
                                     <a href={data.link} target="_blank"><img src={data.flyerUrl} style={{
                                         width: `100%`,
                                         maxWidth: `700px`,
-                                        height: `100%`,
                                         boxShadow: `4px 4px 8px #ddd`,
                                     }} /></a>
 
