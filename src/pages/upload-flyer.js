@@ -91,8 +91,9 @@ const UploadFlyerPage = (props) => {
                 formData.append('flyerName', data.flyer.name);
 
             } else if (data.flyerUrl) {
+                // if we don't add another flyer but click save
 
-                const parseName = () => data.flyerUrl.split('assets/')[1].split('.webp')[0];
+                const parseName = () => data.flyerUrl.split('assets/')[1];
                 formData.append('flyerName', parseName());
 
             }
