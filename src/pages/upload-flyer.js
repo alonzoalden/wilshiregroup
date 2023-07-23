@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import axios from "axios"
 import Logo from "../assets/images/wilshirelogo.png"
 import { Button, Container } from "reactstrap"
-import { FaImage } from "react-icons/fa";
+import { FaImage, FaTimesCircle } from "react-icons/fa";
 
 const UploadFlyerPage = (props) => {
 
@@ -29,10 +29,10 @@ const UploadFlyerPage = (props) => {
 
             // prod mode
             // url: "https://wilshiregfs.com/api/photo",
-            // url: "https://alonzoalden.com/api/photo",
+            url: "https://alonzoalden.com/api/photo",
 
             // dev mode
-            url: "http://localhost:3999/api/photo",
+            // url: "http://localhost:3999/api/photo",
 
         }).then(({ data }) => {
 
@@ -63,8 +63,9 @@ const UploadFlyerPage = (props) => {
     const createImageFile = (file, type) => {
 
         const fileName = `WGFS-Flyer-${new Date().toISOString()}-${Math.floor(Math.random() * 100000)}`;
+        const formattedFileName = fileName.replaceAll(':', '').replaceAll('.', '');
 
-        return new File([file], `${fileName}.png`,  { type });
+        return new File([file], `${formattedFileName}.png`,  { type });
 
     }
 
@@ -87,11 +88,17 @@ const UploadFlyerPage = (props) => {
             if (data.flyer) {
 
                 formData.append('file', data.flyer);
+                formData.append('flyerName', data.flyer.name);
+
+            } else if (data.flyerUrl) {
+
+                const parseName = () => data.flyerUrl.split('assets/')[1].split('.webp')[0];
+                formData.append('flyerName', parseName());
 
             }
             if (data.link) {
 
-                formData.append('flyerInfo', { link: data.link, flyerName: data.flyer.name });
+                formData.append('link', data.link);
 
             }
 
@@ -217,28 +224,11 @@ const UploadFlyerPage = (props) => {
 
     const onRemove = (_, index) => {
 
-        const confirmation = window.confirm("Are you sure you want to remove this section?");
+        const confirmation = window.confirm(`Are you sure you want to remove Flyer ${index + 1}?`);
         if (confirmation) {
 
             const data = [...formState.data];
             data.splice(index, 1);
-
-            // If removing something in middle of list, rename images as they shift indexes
-            // if (index < data.length) {
-
-            //     for (let i = index; i < data.length; i++) {
-
-            //         const file = data[i].flyer;
-            //         if (file) {
-
-            //             const renamedImageIndex = createImageFile(file, i + 1, file.type);
-            //             data[i].flyer = renamedImageIndex
-
-            //         }
-
-            //     }
-
-            // }
 
             setFormState({
                 data
@@ -248,6 +238,7 @@ const UploadFlyerPage = (props) => {
     }
 
     const style = { color: "#dadada", fontSize: "64px" };
+    const styleIcon = { color: "#9a9a9a", fontSize: "18px", marginRight: "5px" };
 
     return (
         <Layout>
@@ -261,8 +252,7 @@ const UploadFlyerPage = (props) => {
                         <h1>WGFS: Upload Flyers</h1>
                         <h5>Please enter a link to the meeting and upload an image, or add a new flyer. This is the order the flyers will appear on the website.</h5>
                         <Button
-                            color="primary"
-                            outline
+                            className="btn btn-outline"
                             onClick={onAddNewFlyer}
                             style={{ marginRight: '5px' }}
                         >
@@ -275,9 +265,12 @@ const UploadFlyerPage = (props) => {
                                 {(() => {
                                     return formState.data.map((data, i) => (
                                         <div className="upload-section" key={i}>
+                                            <div className="title-container">
                                             <h3>Flyer {i + 1}</h3>
+                                            <div className="link-color" onClick={(event) => onRemove(event, i)}> <FaTimesCircle style={styleIcon}/>Remove</div>
+                                            </div>
                                             <div className="form-group">
-                                                <label htmlFor="exampleInputName">Meeting Link</label>
+                                                <label>Meeting Link</label>
                                                 <input type="text" name={'text-' + i} className="form-control"
                                                     value={data.link}
                                                     placeholder="Enter the link to the meeting"
@@ -285,13 +278,17 @@ const UploadFlyerPage = (props) => {
                                                     required
                                                 />
                                             </div>
-                                            <label>Meeting Image</label>
-                                            {data.flyerUrl ? <img className="preview-img" src={data.flyerUrl} /> :
-                                                <div className="placeholder-image"><FaImage style={style} /><div>Please select a flyer</div></div>
+                                            <div className="form-group">
+                                                <label>Meeting Image</label>
+                                                <Button color="primary" outline onClick={(event) => handleClick(event, i)} >
+                                                    {data.flyerUrl ? 'Change' : 'Select'}
+                                                </Button>
+                                            </div>
+                                            {  data.flyerUrl ? <img className="preview-img" src={data.flyerUrl} /> :
+                                                <div className="placeholder-image">
+                                                    <FaImage style={style} /><div>Please select a flyer</div>
+                                                </div>
                                             }
-                                            <Button className="btn btn-outline" onClick={(event) => handleClick(event, i)} >
-                                                {data.flyerUrl ? 'Change' : 'Select'}
-                                            </Button>
                                             <input
                                                 type="file"
                                                 name={'file-' + i}
@@ -301,7 +298,6 @@ const UploadFlyerPage = (props) => {
                                                 style={{ display: 'none' }}
                                                 required
                                             />
-                                            <div className="mt-2"><Button color="link" onClick={(event) => onRemove(event, i)}>Remove</Button></div>
                                         </div>
                                     ))
                                 })()}

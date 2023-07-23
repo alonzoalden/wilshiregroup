@@ -69,7 +69,6 @@ button.long {
     cursor: pointer;
 }
 
-
 input.form-control {
     max-width: 400px;
 }
@@ -115,4 +114,23 @@ input.form-control {
 .btn.btn-link {
     width: initial;
     padding: 0;
+}
+label {
+    white-space: nowrap;
+    min-width: 130px;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+}
+.title-container {
+    display: flex;
+    justify-content: space-between;
+}
+.link-color {
+    color: #888888;
+    font-size: 12px;
+}
+.link-color:hover {
+    cursor: pointer;
 }
