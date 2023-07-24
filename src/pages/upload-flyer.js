@@ -3,11 +3,11 @@ import React, { useState } from "react"
 import "./upload-flyer.css"
 import Layout from "../components/layout"
 import LoginButton from "../components/LoginButton"
+import LogoutButton from "../components/LogoutButton"
 import axios from "axios"
 import Logo from "../assets/images/wilshirelogo.png"
 import { Button, Container } from "reactstrap"
 import { FaImage, FaTimesCircle } from "react-icons/fa";
-import { Auth0Provider } from '@auth0/auth0-react';
 import { useAuth0 } from "@auth0/auth0-react";
 
 
@@ -248,93 +248,84 @@ const UploadFlyerPage = (props) => {
     console.log(user, isAuthenticated, isLoading)
 
     return (
-        <Auth0Provider
-            domain="alonzoalden.auth0.com"
-            clientId="Kfh6brkY5nbSzMrD2Sgfvr3BpasHzzNZ"
-            authorizationParams={{
-                redirect_uri:'https://wilshiregfs.com'
-            }}
-        >
-
-            <Layout>
-                <div className="logo">
-                    <a href="https://wilshiregfs.com" target="blank"><img className="logo-img" src={Logo} /></a>
-                    <span>
-                        { isAuthenticated ? <div> Hello {user.name} </div> : <LoginButton></LoginButton>
+        <Layout>
+            <div className="logo">
+                <a href="https://wilshiregfs.com" target="blank"><img className="logo-img" src={Logo} /></a>
+                <span>
+                    {isAuthenticated ? <><div className="mr-2"> Hello {user.name} </div><LogoutButton></LogoutButton></>: <LoginButton></LoginButton>
                     }
-                    </span>
-                </div>
-                <Container>
-                    { isAuthenticated ? <>
-                        <div className="upload-page-container">
-                            <h1>WGFS: Upload Flyers</h1>
-                            <h5>Please enter a link to the meeting and upload an image, or add a new flyer. This is the order the flyers will appear on the website.</h5>
-                            <Button
-                                className="btn btn-outline"
-                                onClick={onAddNewFlyer}
-                                style={{ marginRight: '5px' }}
-                            >
-                                Add Flyer
-                            </Button>
-                            {(addNewEnabled || formComplete) ? '' : <span>Please complete all flyers before adding a new one.</span>}
-                            {maxReachedEnabled && <span>You have reached the maximum amount of flyers.</span>}
-                            <form>
-                                <div className="upload-section-container">
-                                    {(() => {
-                                        return formState.data.map((data, i) => (
-                                            <div className="upload-section" key={i}>
-                                                <div className="title-container">
-                                                    <h3>Flyer {i + 1}</h3>
-                                                    <div className="link-color" onClick={(event) => onRemove(event, i)}> <FaTimesCircle style={styleIcon} />Remove</div>
-                                                </div>
-                                                <div className="form-group">
-                                                    <label>Meeting Link</label>
-                                                    <input type="text" name={'text-' + i} className="form-control"
-                                                        value={data.link}
-                                                        placeholder="Enter the link to the meeting"
-                                                        onChange={(event) => onInputChange(event, i)}
-                                                        required
-                                                    />
-                                                </div>
-                                                <div className="form-group">
-                                                    <label>Meeting Image</label>
-                                                    <Button color="primary" outline onClick={(event) => handleClick(event, i)} >
-                                                        {data.flyerUrl ? 'Change' : 'Select'}
-                                                    </Button>
-                                                </div>
-                                                {data.flyerUrl ? <img className="preview-img" src={data.flyerUrl} /> :
-                                                    <div className="placeholder-image">
-                                                        <FaImage style={style} /><div>Please select a flyer</div>
-                                                    </div>
-                                                }
-                                                <input
-                                                    type="file"
-                                                    name={'file-' + i}
-                                                    accept="image/png, image/gif, image/jpeg"
-                                                    ref={el => hiddenFileInputRefs.current[i] = el}
-                                                    onChange={(event) => onSelectFile(event, i)}
-                                                    style={{ display: 'none' }}
+                </span>
+            </div>
+            <Container>
+                {isAuthenticated ? <>
+                    <div className="upload-page-container">
+                        <h1>WGFS: Upload Flyers</h1>
+                        <h5>Please enter a link to the meeting and upload an image, or add a new flyer. This is the order the flyers will appear on the website.</h5>
+                        <Button
+                            className="btn btn-outline"
+                            onClick={onAddNewFlyer}
+                            style={{ marginRight: '5px' }}
+                        >
+                            Add Flyer
+                        </Button>
+                        {(addNewEnabled || formComplete) ? '' : <span>Please complete all flyers before adding a new one.</span>}
+                        {maxReachedEnabled && <span>You have reached the maximum amount of flyers.</span>}
+                        <form>
+                            <div className="upload-section-container">
+                                {(() => {
+                                    return formState.data.map((data, i) => (
+                                        <div className="upload-section" key={i}>
+                                            <div className="title-container">
+                                                <h3>Flyer {i + 1}</h3>
+                                                <div className="link-color" onClick={(event) => onRemove(event, i)}> <FaTimesCircle style={styleIcon} />Remove</div>
+                                            </div>
+                                            <div className="form-group">
+                                                <label>Meeting Link</label>
+                                                <input type="text" name={'text-' + i} className="form-control"
+                                                    value={data.link}
+                                                    placeholder="Enter the link to the meeting"
+                                                    onChange={(event) => onInputChange(event, i)}
                                                     required
                                                 />
                                             </div>
-                                        ))
-                                    })()}
-                                </div>
-                                <div>
-                                    <h5 className="mt-4">{formComplete ? 'If everything looks correct, please save.'
-                                        : 'Please finish updating flyers before saving.'}</h5>
-                                    <Button className="btn btn-primary btn-lg" onClick={handleOnSubmit} type="submit" disabled={serverState.submitting || !formComplete}>
-                                        {serverState.submitting ? 'Saving...' : 'Save'}
-                                    </Button>
-                                </div>
-                            </form>
-                        </div>
-                    </>
+                                            <div className="form-group">
+                                                <label>Meeting Image</label>
+                                                <Button color="primary" outline onClick={(event) => handleClick(event, i)} >
+                                                    {data.flyerUrl ? 'Change' : 'Select'}
+                                                </Button>
+                                            </div>
+                                            {data.flyerUrl ? <img className="preview-img" src={data.flyerUrl} /> :
+                                                <div className="placeholder-image">
+                                                    <FaImage style={style} /><div>Please select a flyer</div>
+                                                </div>
+                                            }
+                                            <input
+                                                type="file"
+                                                name={'file-' + i}
+                                                accept="image/png, image/gif, image/jpeg"
+                                                ref={el => hiddenFileInputRefs.current[i] = el}
+                                                onChange={(event) => onSelectFile(event, i)}
+                                                style={{ display: 'none' }}
+                                                required
+                                            />
+                                        </div>
+                                    ))
+                                })()}
+                            </div>
+                            <div>
+                                <h5 className="mt-4">{formComplete ? 'If everything looks correct, please save.'
+                                    : 'Please finish updating flyers before saving.'}</h5>
+                                <Button className="btn btn-primary btn-lg" onClick={handleOnSubmit} type="submit" disabled={serverState.submitting || !formComplete}>
+                                    {serverState.submitting ? 'Saving...' : 'Save'}
+                                </Button>
+                            </div>
+                        </form>
+                    </div>
+                </>
                     : <h4 class="sign-in">Please log in.</h4>
-                    }
-                </Container>
-            </Layout>
-        </Auth0Provider>
+                }
+            </Container>
+        </Layout>
     )
 }
 
