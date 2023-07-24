@@ -244,17 +244,16 @@ const UploadFlyerPage = (props) => {
 
     const style = { color: "#dadada", fontSize: "64px" };
     const styleIcon = { color: "#9a9a9a", fontSize: "18px", marginRight: "5px" };
-    const { user, isAuthenticated, isLoading } = useAuth0();
-    console.log(user, isAuthenticated, isLoading)
+    const { user, isAuthenticated } = useAuth0();
 
     return (
         <Layout>
             <div className="logo">
                 <a href="https://wilshiregfs.com" target="blank"><img className="logo-img" src={Logo} /></a>
-                <span>
-                    {isAuthenticated ? <><div className="mr-2"> Hello {user.name} </div><LogoutButton></LogoutButton></>: <LoginButton></LoginButton>
+                <div>
+                    {isAuthenticated ? <><span className="hello-user"> Hello {user.name} </span><LogoutButton></LogoutButton></>: <LoginButton></LoginButton>
                     }
-                </span>
+                </div>
             </div>
             <Container>
                 {isAuthenticated ? <>
