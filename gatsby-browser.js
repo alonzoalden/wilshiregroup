@@ -22,8 +22,8 @@ const onRedirectCallback = (appState) => {
 export const wrapRootElement = ({ element }) => {
     return (
         <Auth0Provider
-            domain={process.env.AUTH0_DOMAIN}
-            clientId={process.env.AUTH0_CLIENTID}
+            domain="alonzoalden.auth0.com"
+            clientId="Kfh6brkY5nbSzMrD2Sgfvr3BpasHzzNZ"
             authorizationParams={{
                 redirect_uri: 'https://wilshiregfs.com/upload-flyer/'
             }}
