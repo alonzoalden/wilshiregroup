@@ -252,7 +252,7 @@ const UploadFlyerPage = (props) => {
             domain="alonzoalden.auth0.com"
             clientId="Kfh6brkY5nbSzMrD2Sgfvr3BpasHzzNZ"
             authorizationParams={{
-                redirect_uri: window.location.origin
+                redirect_uri:'https://wilshiregfs.com/upload-flyer/'
             }}
         >
 
