@@ -251,7 +251,7 @@ const UploadFlyerPage = (props) => {
             <div className="logo">
                 <a href="https://wilshiregfs.com" target="blank"><img className="logo-img" src={Logo} /></a>
                 <div>
-                    {isAuthenticated ? <><span className="hello-user"> Hello {user.name} </span><LogoutButton></LogoutButton></>: <LoginButton></LoginButton>
+                    {isAuthenticated ? <><span className="hello-user"> {user.name} </span><LogoutButton></LogoutButton></>: <LoginButton></LoginButton>
                     }
                 </div>
             </div>
