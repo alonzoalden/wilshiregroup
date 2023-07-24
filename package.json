@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Alonzo Alden",
   "dependencies": {
+    "@auth0/auth0-react": "^2.2.0",
     "@popperjs/core": "^2.6.0",
     "@react-icons/all-files": "^4.1.0",
     "axios": "^1.4.0",

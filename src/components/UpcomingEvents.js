@@ -2,10 +2,6 @@ import React, { useState } from "react"
 import "./upcoming-events.css"
 import { Container } from "reactstrap";
 import axios from "axios"
-import ZoomMeetingImage from "../assets/flyers/WGFS Estate Financial Planning Zoom Workshop Flyer.png";
-import ZoomMeetingImage2 from "../assets/flyers/WGFS Financial Empowerment Flyer.png";
-const rsvpURL = "https://us02web.zoom.us/meeting/register/tZEvcuCgqTIvG9ZhnCd6vl1CwItBcxz9ZQIx";
-const rsvpURL2 = "https://us02web.zoom.us/meeting/register/tZIpdO6grjgqGd38XgYtadFWLZWe7VP6yANp";
 
 function UpcomingEvents() {
 
@@ -39,7 +35,7 @@ function UpcomingEvents() {
     }, []);
 
     return (
-        <>
+        <>  
             {imagesState.data && imagesState.data?.length &&
                 <Container className="mt-5 mb-1" style={{
                     margin: `0px auto`,
