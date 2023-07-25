@@ -19,7 +19,7 @@ button.long {
     max-width: 50%;
     flex-basis: 50%;
     min-height: 656px;
-    padding-bottom: 32px;
+    padding-bottom: 24px;
     box-sizing: border-box;
     border-bottom: 2px solid #dddddd;
     padding-top: 40px;
@@ -145,4 +145,14 @@ label {
 .hello-user {
     margin-right: 20px;
     font-size: 16px;
+}
+.alert {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    right: 0;
+    margin: 24px;
+}
+.remove {
+    margin-top: 34px;
 }

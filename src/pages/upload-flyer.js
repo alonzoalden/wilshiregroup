@@ -6,7 +6,7 @@ import LoginButton from "../components/LoginButton"
 import LogoutButton from "../components/LogoutButton"
 import axios from "axios"
 import Logo from "../assets/images/wilshirelogo.png"
-import { Button, Container } from "reactstrap"
+import { Alert, Button, Container } from "reactstrap"
 import { FaImage, FaTimesCircle } from "react-icons/fa";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -24,6 +24,8 @@ const UploadFlyerPage = (props) => {
     const [formComplete, setFormComplete] = useState(false);
     const [addNewEnabled, setAddNewEnabled] = useState(true);
     const [maxReachedEnabled, setMaxReachedEnabled] = useState(false);
+    const [notificationSuccess, setNotificationSuccess] = useState(false);
+    const [notificationError, setNotificationError] = useState(false);
     const hiddenFileInputRefs = React.useRef([]);
 
     React.useEffect(() => {
@@ -63,6 +65,34 @@ const UploadFlyerPage = (props) => {
 
     }, [formState]);
 
+    React.useEffect(() => {
+
+        if (notificationSuccess) {
+
+            setTimeout(() => {
+
+                setNotificationSuccess(false);
+
+            }, 6000);
+
+        }
+
+
+    }, [notificationSuccess]);
+
+    React.useEffect(() => {
+
+        if (notificationError) {
+
+            setTimeout(() => {
+
+                setNotificationError(false);
+
+            }, 7000);
+
+        }
+
+    }, [notificationError]);
 
     const createImageFile = (file, type) => {
 
@@ -133,6 +163,16 @@ const UploadFlyerPage = (props) => {
     const handleServerResponse = (ok, msg) => {
 
         setTimeout(() => {
+
+            if (ok) {
+
+                setNotificationSuccess(true);
+
+            } else {
+
+                setNotificationError(true);
+
+            }
 
             setServerState({
                 submitting: false,
@@ -244,10 +284,20 @@ const UploadFlyerPage = (props) => {
 
     const style = { color: "#dadada", fontSize: "64px" };
     const styleIcon = { color: "#9a9a9a", fontSize: "18px", marginRight: "5px" };
-    const { user, isAuthenticated } = useAuth0();
+    const { user, isAuthenticated, isLoading } = useAuth0();
 
     return (
         <Layout>
+            { notificationSuccess &&
+                <Alert className="alert" color="success" fade={true} isOpen={notificationSuccess}>
+                    Success! Your flyers have been updated.
+                </Alert>
+            }
+            { notificationError &&
+                <Alert className="alert" color="danger" fade={true} isOpen={notificationError}>
+                    Oops. There was an error, please try again soon.
+                </Alert>
+            }
             <div className="logo">
                 <a href="https://wilshiregfs.com" target="blank"><img className="logo-img" src={Logo} /></a>
                 <div>
@@ -274,10 +324,7 @@ const UploadFlyerPage = (props) => {
                                 {(() => {
                                     return formState.data.map((data, i) => (
                                         <div className="upload-section" key={i}>
-                                            <div className="title-container">
-                                                <h3>Flyer {i + 1}</h3>
-                                                <div className="link-color" onClick={(event) => onRemove(event, i)}> <FaTimesCircle style={styleIcon} />Remove</div>
-                                            </div>
+                                            <h3>Flyer {i + 1}</h3>
                                             <div className="form-group">
                                                 <label>Meeting Link</label>
                                                 <input type="text" name={'text-' + i} className="form-control"
@@ -307,6 +354,7 @@ const UploadFlyerPage = (props) => {
                                                 style={{ display: 'none' }}
                                                 required
                                             />
+                                            <div className="remove link-color" onClick={(event) => onRemove(event, i)}> <FaTimesCircle style={styleIcon} />Remove Flyer Section</div>
                                         </div>
                                     ))
                                 })()}
@@ -321,7 +369,7 @@ const UploadFlyerPage = (props) => {
                         </form>
                     </div>
                 </>
-                    : <h4 class="sign-in">Please log in.</h4>
+                    : isLoading ? <h4 class="sign-in">Loading...</h4> : <h4 class="sign-in">Please log in.</h4>
                 }
             </Container>
         </Layout>
