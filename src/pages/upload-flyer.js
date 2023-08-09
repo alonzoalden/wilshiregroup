@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import LoginButton from "../components/LoginButton"
 import LogoutButton from "../components/LogoutButton"
 import axios from "axios"
-import Logo from "../assets/images/wilshirelogo.png"
+import Logo from "../assets/images/wilshireicon.png"
 import { Alert, Button, Container } from "reactstrap"
 import { FaImage, FaTimesCircle } from "react-icons/fa";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -309,7 +309,7 @@ const UploadFlyerPage = (props) => {
                 {isAuthenticated ? <>
                     <div className="upload-page-container">
                         <h1>WGFS: Upload Flyers</h1>
-                        <h5>Please enter a link to the meeting and upload an image, or add a new flyer. This is the order the flyers will appear on the website.</h5>
+                        <div style={{ marginBottom: '16px' }}>Please enter a link to the meeting and upload an image, or add a new flyer. This is the order the flyers will appear on the website.</div>
                         <Button
                             className="btn btn-outline"
                             onClick={onAddNewFlyer}
