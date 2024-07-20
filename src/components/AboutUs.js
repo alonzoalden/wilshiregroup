@@ -3,7 +3,7 @@ import CarouselSection from "./Carousel"
 import { Button, Container } from "reactstrap"
 import { FaInfo, FaQuoteLeft, FaPhone } from "react-icons/fa"
 import Logo from "../assets/images/wilshireicon.png"
-import Team from "../assets/images/new-wilshire-team-2.jpg"
+import Team from "../assets/images/new-wilshire-team.jpg"
 import scrollTo from "gatsby-plugin-smoothscroll"
 
 function AboutUs() {
